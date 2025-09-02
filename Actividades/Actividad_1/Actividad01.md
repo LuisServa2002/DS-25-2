@@ -1,6 +1,7 @@
 # Actividad 01
 Luis Andre Trujillo Serva
 ## 4.1 DevOps vs. cascada tradicional
+La siguiente estructura fue creada por mi persona a partir de [DevOps vs Cascada Tradicional vs Agile](https://abhaykarthik.medium.com/waterfall-vs-agile-vs-devops-sdlc-models-8cc11b1a6edc).
 | Característica               | Waterfall (Cascada)                                                                 | DevOps                                                                                      |
 |-------------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | **Enfoque**                   | El modelo en cascada proporciona un enfoque secuencial lineal para gestionar proyectos de software. Cada fase depende de los entregables de la fase anterior. | DevOps es una metodología ágil que abarca Desarrollo (Dev) y Operaciones (Ops). Permite la entrega de extremo a extremo del ciclo de vida de funciones, correcciones y actualizaciones en intervalos frecuentes. |
@@ -33,11 +34,7 @@ Un contexto real donde un enfoque cercano a cascada sigue siendo razonable es en
 2. Se gana en conformidad y seguridad, reduciendo riesgos legales, regulatorios y de fallos que podrían afectar vidas humanas o la estabilidad financiera.
 
 ## 4.2 Ciclo tradicional de dos pasos y silos (limitaciones y anti-patrones)
-Una imagen referencial acerca de **silos organizacionales**.
-<p align="center">
-  <img src="imagenes/silos-equipos.jpeg" width="300" height="200">
-</p>
-
+Una imagen referencial acerca de **silos organizacionales** se encuentra ubicado en `imagenes/silos-equipos.jpeg`.
 ### Limitaciones del ciclo "construcción -> operación" sin integración continua
 1. Grandes lotes de cambios acumulados:
 Al no integrar ni desplegar de forma continua, el software se acumula en bloques grandes que se entregan de una sola vez. Esto aumenta el costo de integración tardía, porque aparecen conflictos y errores difíciles de rastrear cuando finalmente se juntan las partes.
@@ -115,17 +112,41 @@ Con estas métricas, la seguridad se convierte en un valor medible y continuo, y
 
 ## 4.5 CI/CD y estrategias de despliegue (sandbox, canary, azul/verde)
 ### Inserta una imagen del pipeline o canary en imagenes/pipeline_canary.png.
+En la siguiente imagen mostramos el proceso del pipeline CI/CD.
+**Imagen ubicada en: `imagenes/pipeline_canary.png`.
 
 ### Elige una estrategia para un microservicio crítico (por ejemplo, autenticación) y justifica.
+
+Sabemos que un microservicio se divide en trabajos independientes por lo tanto , elejimos un **despliegue canario** , ya que el servicio de autenticación es crítico y cualquier error impacta directamente en el acceso de los usuarios.
+
+Con el despliegue canario , podemos liberar gradualmente la nueva versión a un porcentaje controlado de tráfico (por ejemplo, 5%, luego 20%, y así sucesivamente), observando métricas clave antes de expandir al 100%. Esto permite:
+- Detectar fallas sin afectar a todos los usuarios.
+- Mitigar riesgos antes de que el cambio escale.
+- Validar compatibilidad con clientes y servicios dependientes.
 
 ### Crea una tabla breve de riesgos vs. mitigaciones (al menos tres filas), por ejemplo:
 
   - Regresión funcional -> validación de contrato antes de promover.
   - Costo operativo del doble despliegue -> límites de tiempo de convivencia.
   - Manejo de sesiones -> "draining" y compatibilidad de esquemas.
-  - Define un KPI primario (p. ej., error 5xx, latencia p95) y un umbral numérico con ventana de observación para promoción/abortado.
+
+|Riesgo|Mitigacion|
+|------|----------|
+|Regresión funcional|Validación de contrato y prueba automáticas antes de promover la versión|
+|Costo operativo del doble despliegue|Definir un límite de convivencia(máx 24 horas) para reudicr gasto en recursos|
+|Manejo de sesiones activas|Uso de session draining y esquemas de datos compatibles hacia atrás|
+
+### Define un KPI primario (p. ej., error 5xx, latencia p95) y un umbral numérico con ventana de observación para promoción/abortado.
+- Métrica: Latencia P95 en autenticación.
+- Umbral: ≤ 300 ms.
+- Ventana de observación: 15 minutos antes de promover al siguiente porcentaje de tráfico.
 
 ### Pregunta retadora: si el KPI técnico se mantiene, pero cae una métrica de producto (conversión), explica por qué ambos tipos de métricas deben coexistir en el gate.
+Si el KPI técnico (latencia ≤ 300 ms) se mantiene estable, pero la métrica de producto (por ejemplo, conversión en login completado) cae, significa que el sistema funciona bien desde el punto de vista técnico, pero el cambio está afectando la experiencia del usuario o el negocio.
+
+Por ejemplo: una actualización en la interfaz del flujo de login puede generar confusión y disminuir conversiones, aun cuando la API responde rápido y sin errores.
+
+Por eso, ambos tipos de métricas (técnicas y de negocio) deben coexistir en el gate de promoción. Las métricas técnicas garantizan estabilidad operativa, mientras que las de producto aseguran que el cambio no dañe el valor entregado al usuario ni los objetivos del negocio.
 
 ## 4.6 Fundamentos prácticos sin comandos (evidencia mínima)
 Realiza comprobaciones con herramientas estándar, pero no pegues los comandos. En el README escribe los hallazgos y la interpretación. Adjunta tus capturas en imagenes/ y marca los campos relevantes (códigos, cabeceras, TTL, CN/SAN, fechas, puertos).
