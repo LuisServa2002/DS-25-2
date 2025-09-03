@@ -1,5 +1,7 @@
 # Actividad 01
 Luis Andre Trujillo Serva
+
+Realizado en 5 horas.
 ## 4.1 DevOps vs. cascada tradicional
 La siguiente estructura fue creada por mi persona a partir de [DevOps vs Cascada Tradicional vs Agile](https://abhaykarthik.medium.com/waterfall-vs-agile-vs-devops-sdlc-models-8cc11b1a6edc).
 | Característica               | Waterfall (Cascada)                                                                 | DevOps                                                                                      |
@@ -152,42 +154,217 @@ Por eso, ambos tipos de métricas (técnicas y de negocio) deben coexistir en el
 Realiza comprobaciones con herramientas estándar, pero no pegues los comandos. En el README escribe los hallazgos y la interpretación. Adjunta tus capturas en imagenes/ y marca los campos relevantes (códigos, cabeceras, TTL, CN/SAN, fechas, puertos).
 
 1. HTTP - contrato observable
+- **Método:** `GET`  
+- **Código de estado:** `200 OK`  
+- **Cabeceras clave:**  
+  - `x-amzn-trace-id` → usada para trazabilidad de la petición en sistemas distribuidos.  
+  - `user-agent` → identifica al cliente que realiza la petición (en este caso `PostmanRuntime/7.32.3`).  
 
-    - Reporta: método, código de estado y dos cabeceras clave (por ejemplo, una de control de caché y otra de traza/diagnóstico).
-    - Explica por qué esas cabeceras influyen en rendimiento, caché u observabilidad.
-    - Captura: imagenes/http-evidencia.png, con los campos resaltados.
+  **Hallazgos e interpretación:**  
+La respuesta `200 OK` confirma que el contrato HTTP se cumplió de manera correcta.  
+Las cabeceras seleccionadas influyen directamente en:  
+- **Observabilidad:** `x-amzn-trace-id` permite seguir la petición en un entorno distribuido, facilitando diagnóstico en caso de errores o latencias anómalas.  
+- **Compatibilidad y auditoría:** `user-agent` indica qué cliente está consumiendo el servicio, lo que ayuda a detectar patrones de uso y posibles incompatibilidades.    
+
+La evidencia se encuentra en `imagenes/http-evidencia.png`.
+  
 2. DNS - nombres y TTL
+- Hallazgos:
+    - **Dominio consultado**: www.kinsta.com
+    - **Dirección IP resuelta**: 104.18.0.153
+    - **Tipo de registro**: A (dirección IPv4)
+    - **TTL observado**: 56 segundos (destacado en azul en la captura)
 
-    - Reporta: tipo de registro (A o CNAME) y TTL de un dominio.
-    - Explica cómo el TTL afecta rollbacks y cambios de IP (propagación, ventanas de inconsistencia).
-    - Captura: imagenes/dns-ttl.png, con el TTL destacado.
+- Interpretación:
+
+  El **TTL de 56 segundos** es relativamente bajo, lo que indica una estrategia de DNS agresiva para cambios frecuentes. Esto tiene implicaciones importantes:
+
+  **Impacto en rollbacks y cambios de IP:**
+  - **Propagación rápida**: Con TTL=56s, los cambios de IP se propagan en menos de 1 minuto, permitiendo rollbacks casi inmediatos
+  - **Ventana de inconsistencia mínima**: Durante 56 segundos máximo, algunos clientes podrían resolver la IP antigua mientras otros ya tienen la nueva
+  - **Mayor carga en servidores DNS**: TTL bajo significa más consultas DNS, ya que las respuestas se cachean por menos tiempo
+  - **Flexibilidad operacional**: Ideal para arquitecturas cloud donde las IPs pueden cambiar dinámicamente o para mitigación rápida de incidentes
+
+La evidencia se encuentra en `imagenes/dns-ttl.jpg`.
+
 3. TLS - seguridad en tránsito
 
-    - Reporta: CN/SAN, vigencia (desde/hasta) y emisora del certificado de un sitio seguro.
-    - Explica qué sucede si no valida la cadena (errores de confianza, riesgo de MITM, impacto en UX).
-    - Captura: imagenes/tls-cert.png, con CN/SAN, emisora y fechas.
+- Hallazgos:
+  - **CN (Common Name)**: www.bbc.com
+  - **Emisora**: GlobalSign RSA OV SSL CA 2018
+  - **Vigencia**: 
+    - **Válido desde**: 8/9/2021
+    - **Válido hasta**: 9/10/2022
+  - **Algoritmo de firma**: sha256RSA
+  - **Número de serie**: 19c66b8e70c6db558de177e9
+
+- Interpretación:
+
+  **Validación de cadena de confianza:**
+Si este certificado **no validara correctamente** la cadena, ocurriría:
+
+    - **Errores de confianza**: El navegador mostraría advertencias de "conexión no segura" o "certificado no válido"
+    - **Riesgo de MITM**: Sin validación adecuada, un atacante podría interceptar y modificar el tráfico usando un certificado falso
+    - **Impacto en UX**: Los usuarios verían páginas de advertencia, reduciendo la confianza y conversión del sitio
+    - **Bloqueo automático**: Navegadores modernos pueden rechazar completamente conexiones con certificados inválidos
+
+  **Observaciones del certificado:**
+    - **Emisor confiable**: GlobalSign es una CA reconocida mundialmente
+    - **Validación organizacional (OV)**: Nivel intermedio de validación, más seguro que DV básico
+    - **Algoritmo seguro**: SHA-256 con RSA es considerado criptográficamente seguro
+    - **Vigencia adecuada**: Período de 1 año equilibra seguridad y gestión operacional  
+  
+La evidencia se encuentra en `imagenes/tls-cert.png`.
+
 4. Puertos - estado de runtime
 
-    - Enumera dos puertos en escucha en tu máquina o entorno y qué servicios sugieren.
-    - Explica cómo esta evidencia ayuda a detectar despliegues incompletos (puerto no expuesto) o conflictos (puerto ocupado).
-    - Captura: imagenes/puertos.png, con los puertos resaltados.
-5. 12-Factor - port binding, configuración, logs
+- Hallazgos:
+**Dos puertos destacados en escucha:**
 
-    - Describe cómo parametrizarías el puerto sin tocar código (config externa).
-    - Indica dónde verías los logs en ejecución (flujo estándar) y por qué no deberías escribirlos en archivos locales rotados a mano.
-    - Señala un anti-patrón (p. ej., credenciales en el código) y su impacto en reproducibilidad.
+  1. **Puerto 445** (0.0.0.0:445)
+   - **Servicio**: SMB/CIFS (Server Message Block)
+   - **Función**: Compartición de archivos e impresoras en red Windows
+
+  2. **Puerto 135** (0.0.0.0:135)
+   - **Servicio**: RPC Endpoint Mapper
+   - **Función**: Servicios de llamadas a procedimientos remotos de Windows
+
+- Interpretación:
+
+  **Detección de despliegues incompletos:**
+  - **Puerto no expuesto**: Si una aplicación web debería escuchar en puerto 8080 pero no aparece en `netstat`, indica que el servicio no inició correctamente o tiene problemas de configuración
+  - **Binding incorrecto**: Si aparece solo en 127.0.0.1:8080 en lugar de 0.0.0.0:8080, la aplicación no será accesible externamente
+
+  **Detección de conflictos:**
+  - **Puerto ocupado**: Si intentas desplegar en puerto 80 pero ya está en uso, el nuevo servicio fallará al iniciar
+  - **Múltiples servicios**: Ver el mismo puerto usado por diferentes procesos indica conflicto de configuración
+
+  **Observaciones adicionales:**
+  - **Puertos dinámicos** (49664-50923): Servicios Windows temporales, normales en el sistema
+  - **IPv6 habilitado**: Los puertos [::] indican que el sistema acepta conexiones IPv6
+  - **Binding 0.0.0.0**: Servicios disponibles en todas las interfaces de red
+
+  **Diagnóstico operacional:**
+Esta evidencia permite identificar rápidamente si los servicios esperados están activos y accesibles, crucial para troubleshooting de conectividad.
+
+La evidencia se encuentra en `imagenes/puertos.png`.
+
+
+5. 12-Factor - port binding, configuración, logs
+- **Parametrización del puerto:** el servicio no debe tener el puerto escrito en el código fuente. En su lugar, se define como **variable de entorno** (`PORT=8080`), lo que permite que distintos entornos (dev, staging, prod) usen configuraciones diferentes sin cambios de código.  
+- **Logs en ejecución:** los logs deben enviarse a **stdout/stderr**, de modo que el runtime (Docker, Kubernetes, systemd) los capture, rote y almacene centralizadamente.  
+  - Esto asegura trazabilidad y evita depender de archivos locales que se pueden perder o saturar disco.  
+- **Anti-patrón:** incluir credenciales en el código fuente (ej. claves API hardcodeadas).  
+  - **Impacto:** rompe reproducibilidad (funciona solo en un entorno), expone seguridad y obliga a redeploys innecesarios al cambiar credenciales.  
+
 6. Checklist de diagnóstico (incidente simulado)
 
-    - Escenario: usuarios reportan intermitencia. Formula un checklist de seis pasos ordenados que permita discriminar: a) contrato HTTP roto, b) resolución DNS inconsistente, c) certificado TLS caducado/incorrecto, d) puerto mal configurado/no expuesto.
-    - Para cada paso, indica: objetivo, evidencia esperada, interpretación y acción siguiente.
-    - Evita generalidades; sé operacional (si X ocurre, entonces Y decisión).
+**Escenario:** usuarios reportan intermitencia.  
+Objetivo: discriminar si la causa está en HTTP, DNS, TLS o puertos.
+
+---
+
+#### Paso 1: Verificar contrato HTTP
+- **Objetivo:** comprobar si el servicio responde con el método y código esperados.
+- **Evidencia esperada:** respuesta con código **200 OK** (o el definido en contrato), más cabeceras clave.
+- **Interpretación:**  
+  - Si devuelve error **5xx** → posible fallo de aplicación/backend.  
+  - Si devuelve error **4xx** → contrato roto o endpoint incorrecto.  
+- **Acción siguiente:** si no hay respuesta válida, escalar al equipo de aplicación; si responde bien, continuar con DNS.
+
+---
+
+#### Paso 2: Validar resolución DNS
+- **Objetivo:** confirmar que el dominio resuelve a las IPs correctas en distintos resolvers.
+- **Evidencia esperada:** registro **A** o **CNAME** consistente en varias consultas, con TTL razonable.
+- **Interpretación:**  
+  - Si las IPs difieren o algunas consultas fallan → inconsistencia en propagación DNS.  
+  - Si todo coincide → continuar con TLS.  
+- **Acción siguiente:** si hay inconsistencia, revisar configuración DNS o esperar propagación.
+
+---
+
+#### Paso 3: Revisar certificado TLS
+- **Objetivo:** verificar que el certificado no esté caducado y que los campos CN/SAN correspondan al dominio.
+- **Evidencia esperada:** certificado válido, dentro de vigencia, emitido por CA de confianza.
+- **Interpretación:**  
+  - Si el certificado está vencido o mal emitido → error de confianza, riesgo de MITM, usuarios afectados.  
+  - Si es válido → continuar con puertos.  
+- **Acción siguiente:** renovar/reemitir certificado en caso de fallo.
+
+---
+
+#### Paso 4: Comprobar puertos expuestos
+- **Objetivo:** verificar que el servicio escucha en el puerto esperado (ej. 80/443).
+- **Evidencia esperada:** puerto en **LISTENING** en el servidor, accesible desde cliente.
+- **Interpretación:**  
+  - Si el puerto no está abierto → despliegue incompleto o firewall bloqueando.  
+  - Si está abierto → continuar con runtime.
+- **Acción siguiente:** corregir configuración de servicio/firewall si no está expuesto.
+
+---
+
+#### Paso 5: Revisión de logs de aplicación
+- **Objetivo:** correlacionar eventos de error en logs con los tiempos de los reportes de intermitencia.
+- **Evidencia esperada:** trazas de error, timeouts, o saturación en el servicio.
+- **Interpretación:**  
+  - Si hay errores frecuentes → bug o sobrecarga en aplicación.  
+  - Si no hay errores → seguir con pruebas de carga.  
+- **Acción siguiente:** escalar al equipo de desarrollo/ops con logs para análisis.
+
+---
+
+#### Paso 6: Validación post-reversión (si aplica)
+- **Objetivo:** comprobar estabilidad tras rollback o mitigación temporal.
+- **Evidencia esperada:** métricas de error reducidas, latencia estable, logs sin anomalías.
+- **Interpretación:**  
+  - Si la estabilidad se recupera → incidente mitigado, seguir con análisis de causa raíz.  
+  - Si persiste la intermitencia → escalar como incidente mayor (mayor prioridad).  
+
 
 ## 4.7 Desafíos de DevOps y mitigaciones
 - Inserta un diagrama propio o ilustración en imagenes/desafios_devops.png con tres desafíos anotados (culturales, técnicos, de gobernanza).
+
+El diagrama creado se encuentra en `imagenes/desafios_devops.png`
 - Enumera tres riesgos con su mitigación concreta (rollback, despliegues graduales, revisión cruzada, límites de "blast radius").
+  
+| Riesgo                                    | Mitigación concreta                                          |
+|-------------------------------------------|--------------------------------------------------------------|
+| Error crítico en despliegue de producción | **Rollback automatizado** al último estado estable.          |
+| Impacto alto de cambios en todo el sistema | **Despliegues graduales (canary/blue-green)** para aislar impacto. |
+| Sesgos o errores humanos en revisiones    | **Revisión cruzada de código** y límites de *blast radius* (afectar solo un subconjunto de usuarios). |
+
 - Diseña un experimento controlado para validar que el despliegue gradual reduce riesgo frente a uno "big-bang": define métrica primaria, grupo control, criterio de éxito y plan de reversión.
+
+**Hipótesis:** un despliegue gradual (canary) reduce incidentes críticos comparado con un despliegue "big-bang".  
+
+1. **Métrica primaria:** tasa de errores **5xx** y latencia **p95** en los primeros 30 minutos post-despliegue.  
+2.  **Grupo control:** una versión desplegada con enfoque *big-bang* (100% de usuarios al mismo tiempo).  
+3.  **Grupo experimental:** la misma versión desplegada con estrategia *canary* (10% de usuarios iniciales, escalado progresivo).  
+4.  **Criterio de éxito:** si el canary muestra **≥30% menos errores críticos** y mantiene latencia bajo 300 ms en la ventana de observación, se considera la estrategia más segura.
+5.  **Plan de reversión:** si los umbrales se exceden, se revierte automáticamente a la versión estable anterior, con monitoreo intensivo hasta validar estabilidad.  
+
 
 ## 4.8 Arquitectura mínima para DevSecOps (HTTP/DNS/TLS + 12-Factor)
 - Dibuja un diagrama propio en imagenes/arquitectura-minima.png con el flujo: Cliente -> DNS -> Servicio (HTTP) -> TLS, e indica dónde aplicar controles (políticas de caché, validación de certificados, contratos de API, límites de tasa).
+
+El diagrama creado se encuentra en `imagenes/arquitectura-minima.png`.
 - Explica cómo cada capa contribuye a despliegues seguros y reproducibles.
+    - DNS: Al separar nombre de IP, puedes migrar de infraestructura (blue/green) sin cambiar clientes; con TTLs adecuados, controlas la velocidad de conmutación y reduces riesgos de rutas obsoletas. 
+    - HTTP + caché: Políticas claras (Cache-Control, ETag) hacen los despliegues predecibles (clientes reusan artefactos versionados) y minimizan picos de tráfico tras releases. 
+    - Contratos de API: CI/CD valida compatibilidad consumidor↔proveedor antes de liberar; evitas regresiones entre microservicios y reduces blast radius. 
+    - TLS: Cifrado y autenticación end-to-end; con controles de validez/hostname y (opcional) mTLS para east-west traffic. 
+    - Rate limiting: Mantiene el servicio estable ante abuso o bugs del cliente; métrica observable para gates de promoción. 
+ 
 - Relaciona dos principios 12-Factor (config por entorno; logs a stdout) con evidencias operativas que un docente podría revisar (por ejemplo, diffs mínimos entre entornos, trazabilidad de logs).
+    - Config (III): “Store config in the environment”
+        - Qué es: la configuración vive fuera del código (variables de entorno / secrets), permitiendo el mismo build en dev/staging/prod. 
+        - Evidencias:
+            - Diffs mínimos entre entornos: el artefacto (imagen) es igual; sólo cambian ENV VARs (ver manifests de despliegue o kubectl describe/docker inspect).
+            - Ausencia de secrets en el repo; presencia de env vars definidas en el runtime (p. ej., ConfigMap/Secrets). 
+
+    - Logs (XI): “Treat logs as event streams”
+        - Qué es: la app escribe a stdout; el plumbing (driver/agent) centraliza (ELK/OTel). Esto facilita trazabilidad por versión deploy. 
+        - Evidencias revisables:
+            - Registros accesibles sin entrar al pod (p. ej., kubectl logs o panel centralizado).
+            - Correlación por trace/span ID y etiqueta de release (verifica en los metadatos del log).
