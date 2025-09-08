@@ -1,5 +1,6 @@
-* ca45b9c Segundo commit de rebase
-* 2870073 Primer commit de rebase
+* d9da52a Segundo commit de rebase
+* 7a88588 Primer commit de rebase
+* ab2a00f Grafico de los commits
 * 593e374 Creacion de fix.txt para el cherry-pick con main
 | * fb01e21 Creacion de fix.txt para el cherry-pick con main
 |/  
