@@ -9,7 +9,8 @@ mkdir -p reports
   echo "== curl -I example.com =="
   curl -Is https://example.com | sed '/^\r$/d'
   echo
-  echo "Explicación (editar): Código HTTP X significa ..."
+  echo "Explicación : El código HTTP 200 significa que la petición fue exitosa.
+Otros códigos como 301/302 indican redirecciones, y 404 significa recurso no encontrado."
 } > reports/http.txt
 
 # TODO: DNS — muestra A/AAAA/MX y comenta TTL
@@ -18,7 +19,8 @@ mkdir -p reports
   echo "== AAAA =="; dig AAAA example.com +noall +answer
   echo "== MX ==";   dig MX example.com +noall +answer
   echo
-  echo "Nota (editar): TTL alto vs bajo impacta en ..."
+  echo "Nota: Nota : El campo TTL indica cuánto tiempo puede ser cacheada la respuesta DNS.
+Un TTL alto reduce tráfico DNS pero puede retrasar cambios; un TTL bajo facilita cambios rápidos."
 } > reports/dns.txt
 
 # TODO: TLS — registra versión TLS
@@ -32,7 +34,8 @@ mkdir -p reports
   echo "== ss -tuln =="
   ss -tuln || true
   echo
-  echo "Riesgos (editar): Puertos abiertos innecesarios pueden ..."
+  echo "Riesgos : Puertos abiertos innecesarios exponen servicios que podrían ser explotados.
+Es recomendable cerrar o filtrar los que no se usen."
 } > reports/sockets.txt
 
 echo "Reportes generados en ./reports"
