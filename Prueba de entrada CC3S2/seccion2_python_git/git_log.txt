@@ -1,1 +1,15 @@
-# Genera este archivo con: git log --oneline --graph --decorate --all
+* ca45b9c Segundo commit de rebase
+* 2870073 Primer commit de rebase
+* 593e374 Creacion de fix.txt para el cherry-pick con main
+| * fb01e21 Creacion de fix.txt para el cherry-pick con main
+|/  
+* a612704 Primer commit en la rama feature/msg
+* 231c369 .txt generados después del make all , almacenados en /reports
+* d702bce Seccion 2.1 y 2.2 con Python
+* 66810d1 Modificación del archivo syscheck.sh de la sección 1
+* 63fd2ca Creacion de la carpeta para la PE
+* e389084 Cambios para la siguiente actividad 2
+* 1edbf82 Día 3-Evidencia, diagramas y entrega final
+* 8f2ef94 Día 2-DevSecOps y estrategia de despliegue
+* fe34db5 Día 1-Comparativos e imágenes base
+* 02deae5 Estructura inicial de la actividad 1
