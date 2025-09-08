@@ -1,0 +1,9 @@
+El comando `dig` consulta registros DNS de un dominio. En el ejemplo con google.com se observan registros A (IPv4), AAAA (IPv6), MX (correo), y NS (servidores de nombres).  
+El campo TTL (Time To Live) indica en segundos cuánto tiempo una respuesta puede mantenerse en caché antes de volver a consultarla al servidor DNS.  
+Un TTL alto reduce consultas pero puede retrasar cambios; un TTL bajo permite actualizaciones rápidas pero aumenta la carga en los servidores.
+
+HTTP (Hypertext Transfer Protocol) es el protocolo de comunicación que permite la transferencia de información en la web. Funciona bajo el modelo cliente-servidor, donde el cliente envía solicitudes y el servidor responde con recursos como HTML, JSON o imágenes.
+
+El puerto 80 está asociado a HTTP sin cifrado, mientras que el puerto 443 corresponde a HTTPS, es decir, HTTP sobre TLS (Transport Layer Security). TLS cifra la comunicación para proteger datos sensibles como contraseñas o información financiera, garantizando confidencialidad, integridad y autenticación entre cliente y servidor.
+
+La diferencia esencial es que en el puerto 80 la información viaja en texto plano, lo que la hace vulnerable a ataques de interceptación (sniffing, man-in-the-middle). En el puerto 443, la comunicación está cifrada mediante certificados digitales, evitando que un atacante pueda leer o modificar los datos.
