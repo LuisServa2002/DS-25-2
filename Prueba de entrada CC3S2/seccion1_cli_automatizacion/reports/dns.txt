@@ -1,0 +1,19 @@
+== A ==
+example.com.		237	IN	A	23.192.228.80
+example.com.		237	IN	A	23.192.228.84
+example.com.		237	IN	A	23.215.0.136
+example.com.		237	IN	A	23.215.0.138
+example.com.		237	IN	A	23.220.75.232
+example.com.		237	IN	A	23.220.75.245
+== AAAA ==
+example.com.		168	IN	AAAA	2600:1406:5e00:6::17ce:bc12
+example.com.		168	IN	AAAA	2600:1406:5e00:6::17ce:bc1b
+example.com.		168	IN	AAAA	2600:1406:bc00:53::b81e:94c8
+example.com.		168	IN	AAAA	2600:1406:bc00:53::b81e:94ce
+example.com.		168	IN	AAAA	2600:1408:ec00:36::1736:7f24
+example.com.		168	IN	AAAA	2600:1408:ec00:36::1736:7f31
+== MX ==
+example.com.		86400	IN	MX	0 .
+
+Nota: Nota : El campo TTL indica cuánto tiempo puede ser cacheada la respuesta DNS.
+Un TTL alto reduce tráfico DNS pero puede retrasar cambios; un TTL bajo facilita cambios rápidos.
