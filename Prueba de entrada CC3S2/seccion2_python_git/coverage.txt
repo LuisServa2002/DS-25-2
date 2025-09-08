@@ -1,0 +1,12 @@
+....                                                                     [100%]
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+app/__init__.py       0      0   100%
+app/__main__.py       3      0   100%
+app/app.py           19      1    95%   30
+-----------------------------------------------
+TOTAL                22      1    95%
+
+4 passed in 0.20s
