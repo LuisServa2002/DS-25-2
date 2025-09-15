@@ -1,0 +1,2 @@
+crt=/home/luisserva/DS-25-2/Actividades/Actividad_2/certs/miapp.local.crt
+key=/home/luisserva/DS-25-2/Actividades/Actividad_2/certs/miapp.local.key
