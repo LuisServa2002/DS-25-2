@@ -22,6 +22,7 @@
 #   ./Respuestas-actividad2.sh systemd           # unidad opcional si hay systemd
 #   ./Respuestas-actividad2.sh stop              # detener la app
 #   ./Respuestas-actividad2.sh clean             # limpiar artefactos
+#   ./Respuestas-actividad2.sh end-to-end  
 set -euo pipefail
 
 # Configuración (puedes sobrescribir con variables de entorno)
@@ -425,6 +426,33 @@ clean(){
   fi
 }
 
+# Script end to end
+end_to_end() {
+  echo "[+] Preparando entorno..."
+  hosts_setup          # ✅ nombre correcto de la función
+
+  echo "[+] Ejecutando aplicación Flask..."
+  run_app &            # ✅ usar la función correcta
+  APP_PID=$!
+  sleep 3              # espera para que Flask arranque
+
+  echo "[+] Generando certificado TLS..."
+  tls_cert
+
+  echo "[+] Configurando Nginx..."
+  nginx_setup
+
+  echo "[+] Realizando chequeos HTTP/TLS/DNS..."
+  curl -v http://127.0.0.1:8080/ || true
+  dig +short miapp.local || true
+  curl -k https://miapp.local/ || true
+  ss -ltnp | grep -E ':(443|8080)'
+
+  echo "[+] Matando proceso Flask..."
+  kill $APP_PID
+}
+
+
 # Orquestación completa end-to-end
 all(){
   prepare
@@ -456,5 +484,7 @@ case "${1:-all}" in
   stop) stop ;;
   clean) clean ;;
   all) all ;;
+  end-to-end) end_to_end ;;
   *) err "Subcomando no reconocido: $1"; exit 2 ;;
 esac
+

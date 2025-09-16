@@ -146,4 +146,82 @@ Corremos la app redirigiendo logs a un archivo:
 <p/>
 En 12-Factor, los logs no se escriben en un archivo propio, sino que se envían a stdout/stderr. Esto permite que el entorno de ejecución (systemd, Docker, Kubernetes, etc.) se encargue de recolectarlos, almacenarlos y procesarlos. Así se logra portabilidad y separación de responsabilidades.
 
-## 5.
+## 5. Operación reproducible (Make/WSL/Linux)
+## Empaquetar flujo con Make o script
+En el archivo `Respuestas-actividad2.sh` ya tenemos las funciones de Makefile simplificado:
+
+`run:`  levanta la app.
+
+`dns-setup:` agrega miapp.local.
+
+`tls-cert:` genera certificado.
+
+`nginx:` configura reverse proxy.
+
+`tls-checks:` valida handshake.
+
+A continuación tenemos la tabla de comandos:
+
+| Comando                                | Resultado esperado                                     |
+|----------------------------------------|--------------------------------------------------------|
+| `./Respuestas-actividad2.sh run`         | Flask en `127.0.0.1:8080`, logs en stdout              |
+| `curl http://127.0.0.1:8080/`            | JSON con `message` y `release`                         |
+| `dig +short miapp.local `                | 127.0.0.1                                              |
+| `./Respuestas-actividad2.sh tls-cert`    | Certificado autofirmado en `certs/`                    |
+| `./Respuestas-actividad2.sh nginx`       | Nginx escucha en `:443`, proxyea a Flask en `:8080`    |
+| `openssl s_client -connect miapp.local:443 -brief` | Handshake TLSv1.2/1.3 exitoso con SNI        |
+| `curl -k https://miapp.local/`           | JSON de la app vía HTTPS                               |
+| `ss -ltnp` | grep -E ':(443|8080)'       | Evidencia de sockets Flask (8080) y Nginx (443)        |
+| `journalctl -u nginx -n 20`              | Logs recientes de Nginx                                |
+
+## Mejora incremental
+### Logs estructurados
+La aplicación genera logs en formato **JSON por línea** en stodut, lo cual facilitan el parsing porque cada línea ya está en un formato estructurado y estandarizado.:
+
+```json
+{"ts": "2025-09-15T17:24:04-0500", "level": "INFO", "event": "startup", "port": 8080}
+{"ts": "2025-09-15T17:26:22-0500", "level": "INFO", "event": "request", "method": "GET", "path": "/", "remote": "127.0.0.1", "proto": "http"}
+```
+
+### Script end-to-end
+Dentro de `Respuestas-actividad2.sh` realizamos el siguiente script.
+<p align="center">
+    <img src="imagenes/end-to-end.png" width=700px height=300px>
+<p/>
+Además en la parte de case agregamos dicho script y el comando como será llamado.
+Finalmente , lo ejecutamos:
+<p align="center">
+    <img src="imagenes/end-to-end(2).png" width=700px height=300px>
+<p/>
+
+### Preguntas guía
+1. HTTP: explica idempotencia de métodos y su impacto en retries/health checks. Da un ejemplo con curl -X PUT vs POST.
+
+- `PUT` es idempotente o también `GET` -> repetirlo no cambia el estado final.
+- `POST` no lo es -> cada ejecución puede crear un recurso nuevo.
+
+Ejemplo:
+
+- `curl -X PUT http://127.0.0.1:8080/recurso`
+- `curl -X POST http://127.0.0.1:8080/recurso`
+
+2. DNS: ¿por qué hosts es útil para laboratorio pero no para producción? ¿Cómo influye el TTL en latencia y uso de caché?
+
+- **hosts** es útil en laboratorio porque fuerza una resolución rápida, sin depender de un DNS público. En producción no escala, pues requiere modificar manualmente cada máquina.
+- El TTL controla cuánto tiempo una respuesta se guarda en caché → afecta latencia y frecuencia de consultas.  
+   
+3. TLS: ¿qué rol cumple SNI en el handshake y cómo lo demostraste con openssl s_client?
+   
+El Server Name Indication (SNI) permite al servidor TLS presentar el certificado correcto según el hostname solicitado. Y lo probamos con: 
+
+`openssl s_client -connect miapp.local:443 -servername miapp.local -brief`
+
+4. 12-Factor: ¿por qué logs a stdout y config por entorno simplifican contenedores y CI/CD?
+   
+- Logs a stdout: simplifican integración con Docker/Kubernetes, permiten recolección centralizada.
+- Config por entorno: facilita despliegue en múltiples entornos (dev, staging, prod) sin cambiar código.
+
+5. Operación: ¿qué muestra ss -ltnp que no ves con curl? ¿Cómo triangulas problemas con journalctl/logs de Nginx?
+   
+`ss -ltnp` muestra sockets y procesos en escucha, lo cual no se ven con `curl` (que solo prueba aplicación).
+Triangulación: si `curl` falla, revisas `ss` para confirmar si el puerto está abierto, y `journalctl -u nginx` para verificar errores en el proxy.
