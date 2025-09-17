@@ -1,0 +1,228 @@
+Script started on 2025-09-17 10:19:12-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="209" LINES="51"]
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cd /etc
+[?2004l[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$  ls -a > [7m~/DS-25-2/Actividades/Actividad_4[27m~/DS-25-2/Actividades/Actividad_4/etc_lista,t[K[K.txt
+[?2004l[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$ [7mfind /tmp -maxdepth 1 -type f \( -name '*.txt' -o -name '*.doc' \) | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfind /tmp -maxdepth 1 -type f \( -name '*.txt' -o -name '*.doc' \) | wc -l
+[?2004l0
+[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$ printf "L+[Kínea1\nL´´[K+[K[Kínea2\n" > [7m:~/DS-25-2/Actividades/Actividad_4[27m:~/DS-25-2/Actividades/Actividad_4/text.txt
+[?2004lbash: :~/DS-25-2/Actividades/Actividad_4/text.txt: No such file or directory
+[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$ printf "Línea1\nLínea2\n" > :~/DS-25-2/Actividades/Actividad_4/text.txt[C[1Pt.txtst.txt[C[C[1P~/DS-25-2/Actividades/Actividad_4/test.txt[1P~/DS-25-2/Actividades/Actividad_4/test.txt[1P~/DS-25-2/Actividades/Actividad_4/test.txt
+[?2004lLínea1
+Línea2
+[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$ ls
+[?2004l[0m[01;34mPackageKit[0m              ca-certificates.conf  [01;34mdefault[0m        gprofng.rc  [01;34mkernel[0m          [01;34mlogrotate.d[0m     [01;34mnetworkd-dispatcher[0m  protocols     [01;34msecurity[0m       sudo.conf          [01;34mupdate-manager[0m
+[01;34mX11[0m                     [01;34mcloud[0m                 deluser.conf   [01;34mgroff[0m       [01;34mlandscape[0m       lsb-release     networks             [01;34mpython3[0m       [01;34mselinux[0m        sudo_logsrvd.conf  [01;34mupdate-motd.d[0m
+adduser.conf            [01;34mconsole-setup[0m         [01;34mdepmod.d[0m       group       ld.so.cache     machine-id      [01;34mnewt[0m                 [01;34mpython3.12[0m    [01;34msensors.d[0m      sudoers            [01;36mvconsole.conf[0m
+[01;34malternatives[0m            [01;34mcredstore[0m             [01;34mdhcp[0m           group-      ld.so.conf      magic           [01;34mnginx[0m                [01;34mrc0.d[0m         sensors3.conf  [01;34msudoers.d[0m          [01;34mvim[0m
+[01;34mapache2[0m                 [01;34mcredstore.encrypted[0m   dhcpcd.conf    gshadow     [01;34mld.so.conf.d[0m    magic.mime      nsswitch.conf        [01;34mrc1.d[0m         services       [01;34msupercat[0m           [01;36mvtrgb[0m
+[01;34mapparmor[0m                [01;34mcron.d[0m                [01;34mdpkg[0m           gshadow-    [01;34mldap[0m            manpath.config  [01;34mopt[0m                  [01;34mrc2.d[0m         [01;34msgml[0m           sysctl.conf        [01;34mvulkan[0m
+[01;34mapparmor.d[0m              [01;34mcron.daily[0m            e2scrub.conf   [01;34mgss[0m         legal           mime.types      [01;36mos-release[0m           [01;34mrc3.d[0m         shadow         [01;34msysctl.d[0m           wgetrc
+[01;34mapport[0m                  [01;34mcron.hourly[0m           environment    [01;34mgtk-3.0[0m     libaudit.conf   mke2fs.conf     pam.conf             [01;34mrc4.d[0m         shadow-        [01;34msysstat[0m            wsl-distribution.conf
+[01;34mapt[0m                     [01;34mcron.monthly[0m          [01;34menvironment.d[0m  host.conf   [01;34mlighttpd[0m        [01;34mmodprobe.d[0m      [01;34mpam.d[0m                [01;34mrc5.d[0m         shells         [01;34msystemd[0m            wsl.conf
+bash.bashrc             [01;34mcron.weekly[0m           ethertypes     hostname    locale.alias    modules         passwd               [01;34mrc6.d[0m         [01;34mskel[0m           [01;34mterminfo[0m           xattr.conf
+bash_completion         [01;34mcron.yearly[0m           [01;34mfonts[0m          hosts       locale.conf     [01;34mmodules-load.d[0m  passwd-              [01;34mrcS.d[0m         [01;34mssh[0m            timezone           [01;34mxdg[0m
+[01;34mbash_completion.d[0m       crontab               fstab          [01;34minit.d[0m      locale.gen      [01;36mmtab[0m            [01;34mperl[0m                 [01;36mresolv.conf[0m   [01;34mssl[0m            [01;34mtmpfiles.d[0m         [01;34mxml[0m
+bindresvport.blacklist  [01;34mdbus-1[0m                fuse.conf      inputrc     [01;36mlocaltime[0m       nanorc          [01;34mpm[0m                   [01;36mrmt[0m           subgid         [01;34mubuntu-advantage[0m   zsh_command_not_found
+[01;34mbinfmt.d[0m                [01;34mdconf[0m                 gai.conf       [01;34miproute2[0m    [01;34mlogcheck[0m        netconfig       [01;34mpolkit-1[0m             rpc           subgid-        ucf.conf
+[01;34mbyobu[0m                   debconf.conf          [01;34mglvnd[0m          issue       login.defs      [01;34mnetplan[0m         profile              rsyslog.conf  subuid         [01;34mudev[0m
+[01;34mca-certificates[0m         debian_version        [01;34mgnutls[0m         issue.net   logrotate.conf  [01;34mnetwork[0m         [01;34mprofile.d[0m            [01;34mrsyslog.d[0m     subuid-        [01;34mufw[0m
+[?2004h]0;luisserva@LuisServa: /etc[01;32mluisserva@LuisServa[00m:[01;34m/etc[00m$ cd [7m~/DS-25-2/Actividades/Actividad_4/[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C~/DS-25-2/Actividades/Actividad_4/
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls
+[?2004lREADME.md  etc_lista.txt  [0m[01;34mevidencias[0m
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls[K[Ks [K[Kls evidencias
+[?2004lsesion.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls evidencias[Kcd ~/DS-25-2/Actividades/Actividad_4/ls[Kprintf "Línea1\nLínea2\n" ~/DS-25-2/Actividades/Actividad_4/test.txt>~/DS-25-2/Actividades/Actividad_4/test.txt ~/DS-25-2/Actividades/Actividad_4/test.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ printf "Línea1\nLínea2\n" > ~/DS-25-2/Actividades/Actividad_4/test.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls evidencias[K[K evidencias[K
+[?2004lREADME.md  etc_lista.txt  [0m[01;34mevidencias[0m  test.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ nl test.txt
+[?2004l     1	Línea1
+     2	Línea2
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc -l lista.txt
+[?2004lwc: lista.txt: No such file or directory
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc[K[Kls
+[?2004lREADME.md  etc_lista.txt  [0m[01;34mevidencias[0m  test.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc -l etc_lista.txt
+[?2004l178 etc_lista.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ nl test.txt
+[?2004l     1	Línea1
+     2	Línea2
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc -l etc_lista.txtg
+[?2004lwc: etc_lista.txtg: No such file or directory
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ nl test.txt
+[?2004l     1	Línea1
+     2	Línea2
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc -l lista.txt
+[?2004lwc: lista.txt: No such file or directory
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ wc -l lista.txt[4Pnl test.txt
+[?2004l     1	Línea1
+     2	Línea2
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ nl test.txtwc -l lista.txt[Celista.txttlista.txtclista.txt_lista.txt
+[?2004l178 etc_lista.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls
+[?2004lREADME.md  etc_lista.txt  [0m[01;34mevidencias[0m  test.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cd evidencias
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ ls
+[?2004lsesion.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ nano sesion.txt
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;98H(B[0;7m[ Reading... ](B[m[49;97H(B[0;7m[ Read 40 lines ](B[m[H(B[0;7m  GNU nano 7.2                                                                                        sesion.txt                                                                                                 [1;208H(B[m[50d(B[0;7m^G(B[m Help[50;18H(B[0;7m^O(B[m Write Out     (B[0;7m^W(B[m Where Is[52G(B[0;7m^K(B[m Cut[50;69H(B[0;7m^T(B[m Execute[86G(B[0;7m^C(B[m Location[103G(B[0;7mM-U(B[m Undo[50;120H(B[0;7mM-A(B[m Set Mark     (B[0;7mM-](B[m To Bracket   (B[0;7mM-Q(B[m Previous     (B[0;7m^B(B[m Back[50;188H(B[0;7m^◂(B[m Prev Word[51d(B[0;7m^X(B[m Exit[51;18H(B[0;7m^R(B[m Read File     (B[0;7m^\(B[m Replace[52G(B[0;7m^U(B[m Paste[51;69H(B[0;7m^J(B[m Justify[86G(B[0;7m^/(B[m Go To Line    (B[0;7mM-E(B[m Redo[51;120H(B[0;7mM-6(B[m Copy[51;137H(B[0;7m^Q(B[m Where Was     (B[0;7mM-W(B[m Next[51;171H(B[0;7m^F(B[m Forward[188G(B[0;7m^▸(B[m Next Word[2dScript started on 2025-09-17 10:19:12-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="209" LINES="51"][3d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ cd /etc[4d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$  ls -a > [38;5;208m^[[39m(B[m[7m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[27m[38;5;208m^G^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^[39m(B[0;7m>[5;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$ [38;5;208m^[[39m(B[m[7mfind /tmp -maxdepth 1 -type f \( -name '*.txt' -o -name '*.doc' \) | wc -l[38;5;208m^[[39m(B[m[27m[38;5;208m^G^M^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[(B[0;7m>[6;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[m0[7d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$ printf "L+[38;5;208m^H^[[39m(B[m[Kínea1\nL´´[38;5;208m^H^[[39m(B[m[K+[38;5;208m^H^[[39m(B[m[K[38;5;208m^H^[[39m(B[m[Kínea2\n" > [38;5;208m^[[39m(B[m[7m:~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[27m[38;5;208m^G^H^H^H^H[39m(B[0;7m>[8;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[mbash: :~/DS-25-2/Actividades/Actividad_4/text.txt: No such file or directory[9d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$ printf "Línea1\nLínea2\n" > :~/DS-25-2/Actividades/Actividad_4/text.txt[38;5;208m^H^H^H^H^H^H^[[39m(B[m[C[38;5;208m^H^[[39m(B[m[1Pt.txt[38;5;208m^H^H^H^H^H[39m(B[mst(B[0;7m>[10;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[mLínea1[11dLínea2[12d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$ ls[13d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[0m[38;5;208m^[[39m(B[m[01;34mPackageKit[38;5;208m^[[39m(B[m[0m[13;55Hca-certificates.conf  [38;5;208m^[[39m(B[m[01;34mdefault[38;5;208m^[[39m(B[m[0m[13;106Hgprofng.rc  [38;5;208m^[[39m(B[m[01;34mkernel[38;5;208m^[[39m(B[m[0m[13;148H[38;5;208m^[[39m(B[m[01;34mlogrotate.d[38;5;208m^[[39m(B[m[0m     [38;5;208m^[[39m(B[m[01;34mnetworkd-dispatcher[38;5;208m^[[39m(B[m[(B[0;7m>[14;1H(B[0m[38;5;208m^[[39m(B[m[01;34mX11[38;5;208m^[[39m(B[m[0m[14;39H[38;5;208m^[[39m(B[m[01;34mcloud[38;5;208m^[[39m(B[m[0m[14;75Hdeluser.conf   [38;5;208m^[[39m(B[m[01;34mgroff[38;5;208m^[[39m(B[m[0m[116G[38;5;208m^[[39m(B[m[01;34mlandscape[38;5;208m^[[39m(B[m[0m[146Glsb-release     networks[14;183H[38;5;208m^[[39m(B[m[01;34mpython3[38;5;208m^[[39m(B[m[0m     (B[0;7m>[15;1H(B[madduser.conf[15;25H[38;5;208m^[[39m(B[m[01;34mconsole-setup[38;5;208m^[[39m(B[m[0m[15;61H[38;5;208m^[[39m(B[m[01;34mdepmod.d[38;5;208m^[[39m(B[m[0m[90Ggroup[102Gld.so.cache     machine-id[134G[38;5;208m^[[39m(B[m[01;34mnewt[38;5;208m^[[39m(B[m[0m[15;169H[38;5;208m^[[39m(B[m[01;34mpython3.12[38;5;208m^[[39m(B[m[0m    [38;5;208m^[[39m(B[m[01;34msen(B[0;7m>[16;1H(B[0m[38;5;208m^[[39m(B[m[01;34malternatives[38;5;208m^[[39m(B[m[0m[16;39H[38;5;208m^[[39m(B[m[01;34mcredstore[38;5;208m^[[39m(B[m[0m[16;75H[38;5;208m^[[39m(B[m[01;34mdhcp[38;5;208m^[[39m(B[m[0m[16;104Hgroup-[116Gld.so.conf[132Gmagic[16;148H[38;5;208m^[[39m(B[m[01;34mnginx[38;5;208m^[[39m(B[m[0m[16;183H[38;5;208m^[[39m(B[m[01;34mrc0.d[38;5;208m^[[39m(B[m[0m[209G(B[0;7m>[17;1H(B[0m[38;5;208m^[[39m(B[m[01;34mapache2[38;5;208m^[[39m(B[m[0m[17;39H[38;5;208m^[[39m(B[m[01;34mcredstore.encrypted[38;5;208m^[[39m(B[m[0m   dhcpcd.conf    gshadow     [38;5;208m^[[39m(B[m[01;34mld.so.conf.d[38;5;208m^[[39m(B[m[0m    magic.mime[148Gnsswitch.conf[17;169H[38;5;208m^[[39m(B[m[01;34mrc1.d[38;5;208m^[[39m(B[m[0m[17;197Hservices    (B[0;7m>[18;1H(B[0m[38;5;208m^[[39m(B[m[01;34mapparmor[38;5;208m^[[39m(B[m[0m[18;39H[38;5;208m^[[39m(B[m[01;34mcron.d[38;5;208m^[[39m(B[m[0m[18;75H[38;5;208m^[[39m(B[m[01;34mdpkg[38;5;208m^[[39m(B[m[0m[18;104Hgshadow-    [38;5;208m^[[39m(B[m[01;34mldap[38;5;208m^[[39m(B[m[0m[18;146Hmanpath.config  [38;5;208m^[[39m(B[m[01;34mopt[38;5;208m^[[39m(B[m[0m[18;197H[38;5;208m^[[39m(B[m[01;34mrc2(B[0;7m>[19;1H(B[0m[38;5;208m^[[39m(B[m[01;34mapparmor.d[38;5;208m^[[39m(B[m[0m[19;39H[38;5;208m^[[39m(B[m[01;34mcron.daily[38;5;208m^[[39m(B[m[0m[19;75He2scrub.conf   [38;5;208m^[[39m(B[m[01;34mgss[38;5;208m^[[39m(B[m[0m[19;116Hlegal[19;132Hmime.types[148G[38;5;208m^[[39m(B[m[01;36mos-release[38;5;208m^[[39m(B[m[0m[19;183H[38;5;208m^[[39m(B[m[01;34mrc3.d[38;5;208m^[[39m(B[m[0m[209G(B[0;7m>[20;1H(B[0m[38;5;208m^[[39m(B[m[01;34mapport[38;5;208m^[[39m(B[m[0m[20;39H[38;5;208m^[[39m(B[m[01;34mcron.hourly[38;5;208m^[[39m(B[m[0m[20;75Henvironment    [38;5;208m^[[39m(B[m[01;34mgtk-3.0[38;5;208m^[[39m(B[m[0m     libaudit.conf   mke2fs.conf     pam.conf[20;169H[38;5;208m^[[39m(B[m[01;34mrc4.d[38;5;208m^[[39m(B[m[0m[20;197Hshadow-     (B[0;7m>[21;1H(B[0m[38;5;208m^[[39m(B[m[01;34mapt[38;5;208m^[[39m(B[m[0m[21;39H[38;5;208m^[[39m(B[m[01;34mcron.monthly[38;5;208m^[[39m(B[m[0m[21;75H[38;5;208m^[[39m(B[m[01;34menvironment.d[38;5;208m^[[39m(B[m[0m  host.conf   [38;5;208m^[[39m(B[m[01;34mlighttpd[38;5;208m^[[39m(B[m[0m[21;146H[38;5;208m^[[39m(B[m[01;34mmodprobe.d[38;5;208m^[[39m(B[m[0m[176G[38;5;208m^[[39m(B[m[01;34mpam.d[38;5;208m^[[39m(B[m[0m[209G(B[0;7m>[22;1H(B[mbash.bashrc[22;25H[38;5;208m^[[39m(B[m[01;34mcron.weekly[38;5;208m^[[39m(B[m[0m[22;61Hethertypes     hostname    locale.alias    modules[22;120Hpasswd[22;141H[38;5;208m^[[39m(B[m[01;34mrc6.d[38;5;208m^[[39m(B[m[0m[22;169H[38;5;208m^[[39m(B[m[01;34mskel[38;5;208m^[[39m(B[m[0m[22;198H[38;5;208m^[[39m(B[m[01;34mte(B[0;7m>[23;1H(B[mbash_completion[23;25H[38;5;208m^[[39m(B[m[01;34mcron.yearly[38;5;208m^[[39m(B[m[0m[23;61H[38;5;208m^[[39m(B[m[01;34mfonts[38;5;208m^[[39m(B[m[0m[23;90Hhosts[102Glocale.conf     [38;5;208m^[[39m(B[m[01;34mmodules-load.d[38;5;208m^[[39m(B[m[0m  passwd-[23;169H[38;5;208m^[[39m(B[m[01;34mrcS.d[38;5;208m^[[39m(B[m[0m[23;197H[38;5;208m^[[39m(B[m[01;34mssh(B[0;7m>[24;1H(B[0m[38;5;208m^[[39m(B[m[01;34mbash_completion.d[38;5;208m^[[39m(B[m[0m[39Gcrontab[24;61Hfstab[24;76H[38;5;208m^[[39m(B[m[01;34minit.d[38;5;208m^[[39m(B[m[0m[102Glocale.gen[118G[38;5;208m^[[39m(B[m[01;36mmtab[38;5;208m^[[39m(B[m[0m[24;148H[38;5;208m^[[39m(B[m[01;34mperl[38;5;208m^[[39m(B[m[0m[24;183H[38;5;208m^[[39m(B[m[01;36mresolv.conf[38;5;208m^[[39m(B[m[0m (B[0;7m>[25;1H(B[mbindresvport.blacklist  [38;5;208m^[[39m(B[m[01;34mdbus-1[38;5;208m^[[39m(B[m[0m[25;61Hfuse.conf[76Ginputrc     [38;5;208m^[[39m(B[m[01;36mlocaltime[38;5;208m^[[39m(B[m[0m[118Gnanorc[25;134H[38;5;208m^[[39m(B[m[01;34mpm[38;5;208m^[[39m(B[m[0m[25;169H[38;5;208m^[[39m(B[m[01;36mrmt[38;5;208m^[[39m(B[m[0m[25;197Hsubgid[209G(B[0;7m>[26;1H(B[0m[38;5;208m^[[39m(B[m[01;34mbinfmt.d[38;5;208m^[[39m(B[m[0m[26;39H[38;5;208m^[[39m(B[m[01;34mdconf[38;5;208m^[[39m(B[m[0m[26;75Hgai.conf[90G[38;5;208m^[[39m(B[m[01;34miproute2[38;5;208m^[[39m(B[m[0m    [38;5;208m^[[39m(B[m[01;34mlogcheck[38;5;208m^[[39m(B[m[0m[26;146Hnetconfig[162G[38;5;208m^[[39m(B[m[01;34mpolkit-1[38;5;208m^[[39m(B[m[0m[26;197Hrpc[209G(B[0;7m>[27;1H(B[0m[38;5;208m^[[39m(B[m[01;34mbyobu[38;5;208m^[[39m(B[m[0m[27;39Hdebconf.conf[27;61H[38;5;208m^[[39m(B[m[01;34mglvnd[38;5;208m^[[39m(B[m[0m[27;90Hissue[102Glogin.defs[118G[38;5;208m^[[39m(B[m[01;34mnetplan[38;5;208m^[[39m(B[m[0m[27;148Hprofile[27;169Hrsyslog.conf  subuid[27;198H[38;5;208m^[[39m(B[m[01;34mud(B[0;7m>[28;1H(B[0m[38;5;208m^[[39m(B[m[01;34mca-certificates[38;5;208m^[[39m(B[m[0m[28;39Hdebian_version[28;61H[38;5;208m^[[39m(B[m[01;34mgnutls[38;5;208m^[[39m(B[m[0m[28;90Hissue.net   logrotate.conf  [38;5;208m^[[39m(B[m[01;34mnetwork[38;5;208m^[[39m(B[m[0m[28;148H[38;5;208m^[[39m(B[m[01;34mprofile.d[38;5;208m^[[39m(B[m[0m[28;183H[38;5;208m^[[39m(B[m[01;34mrsyslog.d[38;5;208m^[[39m(B[m[0m   (B[0;7m>[29;1H(B[0m[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: /etc[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m/etc[38;5;208m^[[39m(B[m[00m$ [38;5;208m^G[39m(B[mcd [38;5;208m^[[39m(B[m[7m~/DS-25-2/Actividades/Actividad_4/[38;5;208m^[[39m(B[m[27m[38;5;208m^M^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[C[38;5;208m^[[39m(B[m[(B[0;7m>[30;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ ls[31d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[mREADME.md  etc_lista.txt  [38;5;208m^[[39m(B[m[0m[38;5;208m^[[39m(B[m[01;34mevidencias[38;5;208m^[[39m(B[m[0m[32d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ ls[38;5;208m^H^[[39m(B[m[K[38;5;208m^H^[[39m(B[m[Ks [38;5;208m^H^[[39m(B[m[K[38;5;208m^H^[[39m(B[m[Kls evidencias[33d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[msesion.txt[34d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ ls evidencias[38;5;208m^H^H^H^H^H^H^H^H^H^H^H^[[39m(B[m[K[38;5;208m^H^H[39m(B[mcd ~/DS-25(B[0;7m>[35;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ printf "Línea1\nLínea2\n" > ~/DS-25-2/Acti(B[0;7m>[36;1H(B[0m[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[mREADME.md  etc_lista.txt  [38;5;208m^[[39m(B[m[0m[38;5;208m^[[39m(B[m[01;34mevidencias[38;5;208m^[[39m(B[m[0m  test.txt[37d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ clear[38d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M^[[39m(B[m[H[38;5;208m^[[39m(B[m[2J[38;5;208m^[[39m(B[m[3J[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Actividades/Actividad_4[38;5;208m^[[39m(B[m[00m$ nl test.txt[39d[38;5;208m^[[39m(B[m[?2004l[38;5;208m^M[39m(B[m     1[38;5;208m       [39m(B[mLínea1[40;6H2[38;5;208m  [39m(B[mLínea2[41d[38;5;208m^[[39m(B[m[?2004h[38;5;208m^[[39m(B[m]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[38;5;208m^G^[[39m(B[m[01;32mluisserva@LuisServa[38;5;208m^[[39m(B[m[00m:[38;5;208m^[[39m(B[m[01;34m~/DS-25-2/Activid[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[7d[?25l[?12l[?25h[8d[?25l[?12l[?25h[9d[?25l[?12l[?25h[10d[?25l[?12l[?25h[11d[?25l[?12l[?25h[12d[?25l[?12l[?25h[13d[?25l[?12l[?25h[17d[?25l[?12l[?25h[18d[?25l[?12l[?25h[19d[?25l[?12l[?25h[20d[?25l[?12l[?25h[21d[?25l[49d[K[?12l[?25h[22d[?25l[?12l[?25h[23d[?25l[?12l[?25h[24d[?25l[?12l[?25h[25d[?25l[?12l[?25h[26d[?25l[?12l[?25h[27d[?25l[?12l[?25h[28d[?25l[?12l[?25h[29d[?25l[?12l[?25h[30d[?25l[?12l[?25h[31d[?25l[?12l[?25h[32d[?25l[?12l[?25h[33d[?25l[?12l[?25h[34d[?25l[?12l[?25h[35d[?25l[?12l[?25h[36d[?25l[?12l[?25h[37d[?25l[?12l[?25h[38d[?25l[?12l[?25h[39d[?25l[?12l[?25h[40d[?25l[?12l[?25h[41d[?25l[?12l[?25h[42d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[50d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ cñ[Kñ[Klear
+[?2004l[H[2J[3J[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ whoami
+[?2004lluisserva
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ id
+[?2004luid=1000(luisserva) gid=1000(luisserva) groups=1000(luisserva),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ sudo adduser devsec
+[?2004l[sudo] [REDACTED] for luisserva: 
+info: Adding user `devsec' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `devsec' (1001) ...
+info: Adding new user `devsec' (1001) with group `devsec (1001)' ...
+info: Creating home directory `/home/devsec' ...
+info: Copying files from `/etc/skel' ...
+New [REDACTED]: 
+Retype new [REDACTED]: 
+passwd: [REDACTED] updated successfully
+Changing the user information for devsec
+Enter the new value, or press ENTER for the default
+	Full Name []: Lui   Luis    De  devc sec
+	Room Number []: ops
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] Y
+info: Adding new user `devsec' to supplemental / extra groups `users' ...
+info: Adding user `devsec' to group `users' ...
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ sudo addgroup ops
+[?2004linfo: Selecting GID from range 1000 to 59999 ...
+info: Adding group `ops' (GID 1002) ...
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ sudo usermod -aGops[K[K[K ops devsec
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ touch [7m~/DS-25-2/Actividades/Actividad_4/evidencias[27m~/DS-25-2/Actividades/Actividad_4/evidencias[K/[REDACTED]o.txt[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksecer[K[Kreto.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4/evidencias[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4/evidencias[00m$ cd ..
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls
+[?2004lREADME.md  etc_lista.txt  [0m[01;34mevidencias[0m  [REDACTED]o.txt  test.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ sudo chown devsec:ops [7m~/DS-25-2/Actividades/Actividad_4/evidencias[27m~/DS-25-2/Actividades/Actividad_4/evidencias[K[K[K[K[K[K[K[K[K[K[REDACTED]o,[K.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ sudo chmod 5[K640 [7m~/DS-25-2/Actividades/Actividad_4/evidencias[27m~/DS-25-2/Actividades/Actividad_4/evidencias[K[K[K[K[K[K[K[K[K[K[REDACTED]o.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ps aux  | grep bash
+[?2004lluisser+     382  0.0  0.0   6072  4992 pts/1    S+   09:51   0:00 -[01;31m[Kbash[m[K
+luisser+     680  0.0  0.0   6200  5248 pts/0    Ss   10:11   0:00 -[01;31m[Kbash[m[K
+luisser+    1175  0.0  0.0   6080  5248 pts/2    Ss   10:17   0:00 [01;31m[Kbash[m[K -i
+luisser+    1391  0.0  0.0   4088  1920 pts/2    S+   10:51   0:00 grep --color=auto [01;31m[Kbash[m[K
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7msystemctl status systemd-logind[27msystemctl status systemd-logind
+[?2004l[?1h=[0;1;32m●[0m systemd-logind.service - User Login Management[m
+     Loaded: loaded (]8;;file://LuisServa/usr/lib/systemd/system/systemd-logind.service/usr/lib/systemd/system/systemd-logind.service]8;;; static[0;1;32m[0m)[m
+    Drop-In: /usr/lib/systemd/system/systemd-logind.service.d[m
+             └─]8;;file://LuisServa/usr/lib/systemd/system/systemd-logind.service.d/dbus.confdbus.conf]8;;[m
+     Active: [0;1;32mactive (running)[0m since Wed 2025-09-17 09:54:11 -05; 58min ago[m
+       Docs: ]8;;man:sd-login(3)man:sd-login(3)]8;;[m
+             ]8;;man:systemd-logind.service(8)man:systemd-logind.service(8)]8;;[m
+             ]8;;man:logind.conf(5)man:logind.conf(5)]8;;[m
+             ]8;;man:org.freedesktop.login1(5)man:org.freedesktop.login1(5)]8;;[m
+   Main PID: 166 (systemd-logind)[m
+     Status: "[0;1;36mProcessing requests...[0m"[m
+      Tasks: 1 (limit: 9290)[m
+   FD Store: 0[0;38;5;245m (limit: 512)[0m[m
+     Memory: 1.7M (peak: 2.3M)[m
+        CPU: 147ms[m
+     CGroup: /system.slice/systemd-logind.service[m
+             └─[0;38;5;245m166 /usr/lib/systemd/systemd-logind[0m[m
+[m
+Sep 17 09:54:11 LuisServa systemd[1]: Starting systemd-logind.service - User Login Management...[m
+Sep 17 09:54:11 LuisServa systemd-logind[166]: New seat seat0.[m
+Sep 17 09:54:11 LuisServa systemd[1]: Started systemd-logind.service - User Login Management.[m
+Sep 17 09:54:12 LuisServa systemd-logind[166]: New session 1 of user luisserva.[m
+[K[?1l>[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7mlogind -n 10[27mlogind -n 10
+[?2004lCommand 'logind' not found, did you mean:
+  command 'login' from deb login (1:4.13+dfsg1-4ubuntu3.2)
+  command 'logid' from deb logiops (0.3.3-1)
+Try: sudo apt install <deb name>
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7mjournalctl -u systemd-logind -n 10[27mjournalctl -u systemd-logind -n 10
+[?2004l[?1h=Sep 16 19:10:45 LuisServa systemd[1]: Started systemd-logind.service - User Login Management.[m
+Sep 16 19:10:47 LuisServa systemd-logind[185]: New session 1 of user luisserva.[m
+Sep 17 00:25:41 LuisServa systemd[1]: Starting systemd-logind.service - User Login Management...[m
+Sep 17 00:25:41 LuisServa systemd-logind[396]: New seat seat0.[m
+Sep 17 00:25:41 LuisServa systemd[1]: Started systemd-logind.service - User Login Management.[m
+Sep 17 00:25:43 LuisServa systemd-logind[396]: New session 9 of user luisserva.[m
+[0;1;39m-- Boot 13588e1aca6940f082f56e9e63cfad1c --[0m[m
+Sep 17 09:54:11 LuisServa systemd[1]: Starting systemd-logind.service - User Login Management...[m
+Sep 17 09:54:11 LuisServa systemd-logind[166]: New seat seat0.[m
+Sep 17 09:54:11 LuisServa systemd[1]: Started systemd-logind.service - User Login Management.[m
+Sep 17 09:54:12 LuisServa systemd-logind[166]: New session 1 of user luisserva.[m
+[K[?1l>[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ namei -l [REDACTED]o.txt
+[?2004lf: [REDACTED]o.txt
+-rw-r----- devsec ops [REDACTED]o.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ id devsec
+[?2004luid=1001(devsec) gid=1001(devsec) groups=1001(devsec),100(users),1002(ops)
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ mkdir imagenes
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7mgrep root /etc/passwd[27mgrep root /etc/passwd
+[?2004l[01;31m[Kroot[m[K:x:0:0:[01;31m[Kroot[m[K:/[01;31m[Kroot[m[K:/bin/bash
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ printf "linea1:da[K[K dato1\nLi[K[Klinea1[K2: dato2\n" Z[K> datos.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls
+[?2004lREADME.md  datos.txt  etc_lista.txt  [0m[01;34mevidencias[0m  [01;34mimagenes[0m  [REDACTED]o.txt  test.txt
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ sed 's/dato1/secreo[Kto/[K/0[K' datos.txs[Kt > nuevo.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ ls nuevo.t[K[K[K[K[K[K[K[K[K[Knano nuevo.tx[K[K[K[K[K[K[K[K[K[K[K[K[Kcat.[K nuevo [K.txt
+[?2004llinea1: [REDACTED]o
+linea2: dato2
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ awk -F: 'Ñ[K{PR[K[Kprint $1}'[K?[K' /etc/passwd | sort | uniq > usuarios.txt
+[?2004l[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cat usuarios.txt
+[?2004l_apt
+backup
+bin
+daemon
+devsec
+dhcpcd
+games
+irc
+landscape
+list
+lp
+luisserva
+mail
+man
+messagebus
+news
+nobody
+polkitd
+proxy
+root
+sync
+sys
+syslog
+systemd-network
+systemd-resolve
+systemd-timesync
+uucp
+uuidd
+www-data
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ printf "hola\n" | tr 'a-z' 'A[KA-Z' | tee mayus.txt
+[?2004lHOLA
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cat mayus.txt
+[?2004lHOLA
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cat [K[K[K[Kj[Khead lista-[K_conf.txt
+[?2004lhead: cannot open 'lista_conf.txt' for reading: No such file or directory
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7mfile lista_conf.txt && head lista_conf.txt[27mfile lista_conf.txt && head lista_conf.txt
+[?2004llista_conf.txt: cannot open `lista_conf.txt' (No such file or directory)
+head: cannot open 'lista_conf.txt' for reading: No such file or directory
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ find /tmp -mtime -5 -type f
+[?2004lfind: ‘/tmp/systemd-private-13588e1aca6940f082f56e9e63cfad1c-systemd-logind.service-OwPXfh’: Permission denied
+find: ‘/tmp/systemd-private-13588e1aca6940f082f56e9e63cfad1c-systemd-timesyncd.service-wgruph’: Permission denied
+find: ‘/tmp/systemd-private-13588e1aca6940f082f56e9e63cfad1c-wsl-pro.service-wiFnVQ’: Permission denied
+find: ‘/tmp/snap-private-tmp’: Permission denied
+find: ‘/tmp/systemd-private-13588e1aca6940f082f56e9e63cfad1c-polkit.service-Am9Cvy’: Permission denied
+find: ‘/tmp/systemd-private-13588e1aca6940f082f56e9e63cfad1c-systemd-resolved.service-1LGYxL’: Permission denied
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ [7mls /etc | grep conf | sort | tee ~/Actividad4-CC3S2/lista_conf.txt | wc -l[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls /etc | grep conf | sort | tee ~/Actividad4-CC3S2/lista_conf.txt | wc -l[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P
+[?2004l31
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ cat [K[K[K[Khead lista_conf.txt
+[?2004ladduser.conf
+ca-certificates.conf
+dconf
+debconf.conf
+deluser.conf
+dhcpcd.conf
+e2scrub.conf
+fuse.conf
+gai.conf
+host.conf
+[?2004h]0;luisserva@LuisServa: ~/DS-25-2/Actividades/Actividad_4[01;32mluisserva@LuisServa[00m:[01;34m~/DS-25-2/Actividades/Actividad_4[00m$ e[Kexit
+[?2004lexit
+
+Script done on 2025-09-17 11:28:37-05:00 [COMMAND_EXIT_CODE="0"]
