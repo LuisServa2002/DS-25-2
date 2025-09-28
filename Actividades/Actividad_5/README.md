@@ -323,7 +323,7 @@ Modificamos el archivo `hello.py` y obtenemos dicho error , por último se resat
 
 #### Checklist de Smoke-Tests - Lint y formato
 <p align="center">
-    <img src="imagenes/parte03-rollback.png" width=700px height=150px>
+    <img src="imagenes/parte03-lint.png" width=700px height=150px>
 <p/>
 
 #### Checklist de Smoke-Tests - Limpieza
@@ -335,3 +335,5 @@ Modificamos el archivo `hello.py` y obtenemos dicho error , por último se resat
 <p align="center">
     <img src="imagenes/parte03-reproducibilidad.png" width=700px height=100px>
 <p/>
+
+Ambos `SHA256` son iguales por eso obtenemos la respuesta de reproducible.
