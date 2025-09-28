@@ -1,0 +1,11 @@
+Sistema operativo:
+Description:	Ubuntu 24.04.3 LTS
+
+Python:
+Python 3.12.3
+
+GNU tar:
+tar (GNU tar) 1.35
+
+sha256sum:
+sha256sum (GNU coreutils) 9.4
