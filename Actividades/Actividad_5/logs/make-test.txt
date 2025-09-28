@@ -1,0 +1,12 @@
+scripts/run_tests.sh
+Demostrando pipefail:
+Sin pipefail: el pipe se considera exitoso (status 0).
+Con pipefail: se detecta el fallo (status != 0).
+Test pasó: Hello, World!
+python3 -m unittest discover -s tests -v
+test_greet (test_hello.TestGreet.test_greet) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

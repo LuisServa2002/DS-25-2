@@ -1,0 +1,3 @@
+shellcheck scripts/run_tests.sh
+shfmt -d scripts/run_tests.sh
+ruff no instalado; omitiendo lint Python

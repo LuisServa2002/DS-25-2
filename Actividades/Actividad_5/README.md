@@ -156,7 +156,182 @@ El cambio funcionó correctamente: provocó que `output` quedara indefinida, act
 ## Parte 2: Leer - Analizar un repositorio completo
 ### 2.1 Test de ejemplo
 
+- Ejecuta make -n all para un dry-run que muestre comandos sin ejecutarlos; identifica expansiones $@ y $<, el orden de objetivos y cómo all encadena tools, lint, build, test, package.
+
+    <p align="center">
+        <img src="imagenes/parte02-ejercicio01.png" width=700px height=200px>
+    <p/>
+
+    - `make -n all` muestra que `all` actúa como agregador, encadenando en orden: `tools → lint → build → test → package`.
+
+    - Esto permite revisar qué se ejecutaría sin modificar nada en el sistema, útil para depuración y validación de flujos.
+
+    - La expansión de `$@` y `$<` confirma cómo Make sustituye esas variables automáticas en las recetas.
+
+- Ejecuta make -d build y localiza líneas "Considerando el archivo objetivo" y "Debe deshacerse", explica por qué recompila o no out/hello.txt usando marcas de tiempo y cómo mkdir -p $(@D) garantiza el directorio.
+
+<p align="center">
+        <img src="imagenes/parte02-ejercicio02.png" width=700px height=300px>
+<p/>
+
+En `make -d build` se observa cómo Make analiza dependencias: primero revisa `src/hello.py` y luego el target `out/hello.txt`.  
+Si la fuente está más nueva, decide `"Must remake"` y vuelve a ejecutar la receta, generando el archivo actualizado.  
+En cambio, si no hubo cambios, aparece `"No need to remake"`.  
+La instrucción `mkdir -p $(@D)` evita errores asegurando que el directorio `out/` exista antes de escribir el target.  
+
+- Fuerza un entorno con BSD tar en PATH y corre make tools; comprueba el fallo con "Se requiere GNU tar" y razona por qué --sort, --numeric-owner y --mtime son imprescindibles para reproducibilidad determinista.
+
+<p align="center">
+        <img src="imagenes/parte02-ejercicio03.png" width=700px height=150px>
+<p/>
+
+Al forzar un `tar` no compatible (BSD), `make tools` falla con el mensaje `Se requiere GNU tar`.  
+Esto ocurre porque el Makefile valida que `tar --version` contenga la cadena `GNU tar`.  
+Es imprescindible ya que la reproducibilidad depende de banderas exclusivas de GNU tar:  
+`--sort=name` para ordenar entradas, `--mtime` para fijar fechas, y `--numeric-owner` para normalizar propietarios.  
+Con BSD tar, los artefactos cambiarían entre ejecuciones y romperían la reproducibilidad.  
+  
+- Ejecuta make verify-repro; observa que genera dos artefactos y compara SHA256_1 y SHA256_2. Si difieren, hipótesis: zona horaria, versión de tar, contenido no determinista o variables de entorno no fijadas.
+
+<p align="center">
+        <img src="imagenes/parte02-ejercicio04.png" width=700px height=100px>
+<p/>
+
+El comando `make verify-repro` ejecuta dos empaquetados consecutivos y compara sus hashes SHA256.  
+En mi entorno los resultados fueron idénticos, confirmando que el build es 100% reproducible. 
+  
+- Corre make clean && make all, cronometrando; repite make all sin cambios y compara tiempos y logs. Explica por qué la segunda es más rápida gracias a timestamps y relaciones de dependencia bien declaradas.
+
+<p align="center">
+    <img src="imagenes/parte02-ejercicio05.png" width=700px height=350px>
+<p/>
+
+Al ejecutar `make clean && make all`, se borran artefactos y se reconstruye desde cero, por lo que tarda más tiempo.  
+En la segunda corrida de `make all`, como no hubo cambios, Make detecta que los targets ya están al día.  
+El resultado es inmediato.  
+Esto demuestra cómo las marcas de tiempo y dependencias bien definidas permiten builds incrementales eficientes.  
+  
+- Ejecuta PYTHON=python3.12 make test (si existe). Verifica con python3.12 --version y mensajes que el override funciona gracias a ?= y a PY="${PYTHON:-python3}" en el script; confirma que el artefacto final no cambia respecto al intérprete por defecto.
+
+<p align="center">
+    <img src="imagenes/parte02-ejercicio06.png" width=700px height=200px>
+<p/>
+
+Probando con `PYTHON=python3.12 make test`, Make usó el intérprete alternativo en todas las recetas.  
+El script `run_tests.sh` también respetó esa variable al evaluar `PY="${PYTHON:-python3}"`.  
+La prueba confirma que el override funciona, pero el resultado final (`out/hello.txt`) es idéntico,  
+ya que la lógica del programa no depende de la versión de Python utilizada.  
+  
+
+- Ejecuta make test; describe cómo primero corre scripts/run_tests.sh y luego python -m unittest. Determina el comportamiento si el script de pruebas falla y cómo se propaga el error a la tarea global.
+
+<p align="center">
+    <img src="imagenes/parte02-ejercicio07.png" width=700px height=150px>
+<p/>
+
+El objetivo `make test` primero ejecuta el script Bash `scripts/run_tests.sh` y después corre los tests de Python con unittest.  
+Si el script Bash falla (por ejemplo, no encuentra `Hello, World!`), Make interrumpe la receta inmediatamente.  
+De esta manera el error se propaga hasta `make test`, que devuelve código distinto de cero y marca la tarea como fallida.  
+Este comportamiento asegura que un fallo temprano bloquee toda la cadena de pruebas.  
+
+- Ejecuta touch src/hello.py y luego make all; identifica qué objetivos se rehacen (build, test, package) y relaciona el comportamiento con el timestamp actualizado y la cadena de dependencias especificada.
+
+<p align="center">
+    <img src="imagenes/parte02-ejercicio08.png" width=700px height=250px>
+<p/>
+
+Al ejecutar `touch src/hello.py`, el timestamp del archivo fuente se actualizó.  
+Make detecta que el target `out/hello.txt` está desactualizado y rehace `build`.  
+Esto provoca que también se ejecuten `test` y `package`, ya que dependen de ese target.  
+De esta forma se garantiza que cualquier cambio en el código fuente recorra toda la cadena de construcción.  
+
+- Ejecuta make -j4 all y observa ejecución concurrente de objetivos independientes; confirma resultados idénticos a modo secuencial y explica cómo mkdir -p $(@D) y dependencias precisas evitan condiciones de carrera.
+
+<p align="center">
+    <img src="imagenes/parte02-ejercicio09.png" width=700px height=250px>
+<p/>
+
+Al correr `make -j4 all`, Make ejecuta en paralelo los objetivos que no dependen entre sí, reduciendo el tiempo total. Se observa que `lint`, `build` y `test` se entrelazan en la salida, pero todos respetan las dependencias gracias a `mkdir -p $(@D)` y reglas bien declaradas. El resultado final es idéntico al modo secuencial, con la ventaja de aprovechar la concurrencia sin condiciones de carrera.
+
+
+- Ejecuta make lint y luego make format; interpreta diagnósticos de shellcheck, revisa diferencias aplicadas por shfmt y, si está disponible, considera la salida de ruff sobre src/ antes de empaquetar.
+<p align="center">
+    <img src="imagenes/parte02-ejercicio10.png" width=700px height=100px>
+<p/>
+
+En este ejercicio corrimos `make lint` y vimos que revisa la calidad del código: `shellcheck` nos da consejos de buenas prácticas en Bash y `shfmt` sugiere un formato más limpio. Como `ruff` no está instalado, el Makefile simplemente lo avisa sin detener la ejecución.  
+Después, al correr `make format`, `shfmt` aplicó directamente las correcciones de estilo en el script. De esta forma, garantizamos que el código quede consistente y más fácil de leer sin que tengamos que editarlo a mano.  
+
 ## Parte 3: Extender
 ### 3.1 lint mejorado
+Eliminamos las comillas en `"$output"` y al ejecutar el primer comando visualizamos que `shellcheck` reconoce ese error , lo corregimos y ejecutamos nuevamente , ahora todo funciona correctamente. Luego, con `make format`, `shfmt` aplicó correcciones de estilo automáticamente, manteniendo el script más limpio y consistente. Si `ruff` estuviera disponible, también podría revisarse el código Python, aunque su ausencia no bloquea la build.  
+<p align="center">
+    <img src="imagenes/parte03(1).png" width=700px height=250px>
+<p/>
+
 ### 3.2 Rollback adicional
+<p align="center">
+    <img src="imagenes/parte03(2)-modificacion(2).png" width=700px height=200px>
+<p/>
+
+<p align="center">
+    <img src="imagenes/parte03(2)-modificacion.png" width=700px height=200px>
+<p/>
+
+<p align="center">
+    <img src="imagenes/parte03(2)-ejecucion.png" width=700px height=200px>
+<p/>
+
 ### 3.3 Incrementalidad
+<p align="center">
+    <img src="imagenes/parte03-3-01.png" width=700px height=350px>
+<p/>
+
+- **Primera ejecución de `make benchmark`:**  
+  Se construyeron todos los objetivos desde cero (`out/hello.txt`, pruebas y `dist/app.tar.gz`). El tiempo fue mayor porque ejecutó todos los pasos completos.
+
+- **Segunda ejecución de `make benchmark`:**  
+  Como no hubo cambios en el código, `make` detectó que los artefactos estaban actualizados y **no recompiló nada**. El tiempo fue mucho menor, ya que solo verificó marcas de tiempo.
+
+- **Después de modificar `src/hello.py` con `touch`:**  
+  Make notó que el archivo fuente cambió y reconstruyó solo lo necesario: volvió a generar `hello.txt`, corrió los tests y empaquetó de nuevo el `app.tar.gz`.
+
+#### Checklist de Smoke-Tests - Bootstrap
+<p align="center">
+    <img src="imagenes/parte03-bootstrap.png" width=700px height=200px>
+<p/>
+Logramos confirmar los permisos de ejecución y todas las herramientas están instaladas correctamente. 
+
+#### Checklist de Smoke-Tests - Primera pasada
+<p align="center">
+    <img src="imagenes/parte03-primerapasada.png" width=700px height=250px>
+<p/>
+
+#### Checklist de Smoke-Tests - Incrementalidad
+<p align="center">
+    <img src="imagenes/parte03-incrementalidad.png" width=700px height=450px>
+<p/>
+
+Este flujo confirma que el sistema de dependencias de `make` está funcionando correctamente: rápido cuando no hay cambios, y preciso al detectar modificaciones en el código fuente.
+
+#### Checklist de Smoke-Tests - Rollback
+<p align="center">
+    <img src="imagenes/parte03-rollback.png" width=700px height=150px>
+<p/>
+
+Modificamos el archivo `hello.py` y obtenemos dicho error , por último se resatura la versión anterior con el último comando.
+
+#### Checklist de Smoke-Tests - Lint y formato
+<p align="center">
+    <img src="imagenes/parte03-rollback.png" width=700px height=150px>
+<p/>
+
+#### Checklist de Smoke-Tests - Limpieza
+<p align="center">
+    <img src="imagenes/parte03-limpieza.png" width=700px height=250px>
+<p/>
+
+#### Checklist de Smoke-Tests - Reproducibilidad
+<p align="center">
+    <img src="imagenes/parte03-reproducibilidad.png" width=700px height=100px>
+<p/>

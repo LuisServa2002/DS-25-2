@@ -15,6 +15,11 @@ SRC_DIR="src"
 # Archivo temporal
 tmp="$(mktemp)"
 
+# Guardamos el path del tmp para pruebas manuales (ej. rollback 3.2)
+mkdir -p out
+echo "$tmp" >|out/tmp_path.txt
+# sleep 3   # <-- solo activa manualmente si quieres probar borrar desde otra terminal
+
 # Limpieza segura + posible rollback de hello.py si existiera un .bak
 cleanup() {
 	rc="$1"
@@ -41,7 +46,7 @@ check_deps() {
 run_tests() {
 	local script="$1"
 	local output
-	("$PY" "$script")
+	output=$("$PY" "$script")
 	if ! echo "$output" | grep -Fq "Hello, World!"; then
 		echo "Test falló: salida inesperada" >&2
 		mv -- "$script" "${script}.bak" || true
@@ -71,3 +76,9 @@ EOF
 # Ejecutar
 check_deps
 run_tests "${SRC_DIR}/hello.py"
+
+# Parte 3.2 – Verificación de rollback extra
+if [[ ! -f "$tmp" ]]; then
+	echo "Error: archivo temporal perdido"
+	exit 3
+fi
