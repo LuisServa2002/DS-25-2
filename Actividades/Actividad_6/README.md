@@ -3,10 +3,10 @@ Estudiante: Luis Andre Trujillo Serva
 ---
 ## Conceptos de Git utilizados
 - `git config`: Se logro validar y crear el usuario de nuestro entorno a nivel global para poder trabajar con mis demás repositorios y realizar cada avance mediante los commits.
-- `git init`: Cramos un repositorio local , permitiendo llevar un historial de trabajo de nuestra actividad. 
+- `git init`: Creamos un repositorio local , permitiendo llevar un historial de trabajo de nuestra actividad. 
 - Mediante `git add` podemos preparar los archivos para luego ser guardados o almacenados , luego , con el comando `git commit` logramos registrar esos cambios. También podemos visualizar que archivos faltan agregar o si ya han sido registrados mediante `git status`. 
 - `git log`: Gracias a este comando podemos visualizar las distintas características de un commit , como su hash , el autor , la fecha del registro y el mensaje de dicho commit agregado.
-- `Ramas` : Para trabajar con las distintas ramas utilizamos comandos que simplifican dos pasos por ejemplo : `git checkout -b <nombre_rama>` ó `git switch -c <nombre_rama>`.
+- `Ramas` : Para trabajar con la creación de distintas ramas utilizamos comandos que simplifican dos pasos por ejemplo : `git checkout -b <nombre_rama>` ó `git switch -c <nombre_rama>` , además para cambiar de una rama a otra , utilizaos `git checkout <nombre_rama>` ó `git switch <nombre_rama>`.
 - `git cherry-pick`: Permite realizar y aplicar un commit especifico a otra rama utilizando su hash , sin necesidad de realizar un merge.
 - `git stash`: Permite guardar temporalmente archivos preparados en una rama , además con este comando podemos cambiar de rama sin problemas y para recuperar dichos cambios utilizamos `git stash pop`.
 ## Preguntas
