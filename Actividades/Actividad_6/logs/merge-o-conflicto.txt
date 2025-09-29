@@ -1,0 +1,26 @@
+Auto-merging main.py
+CONFLICT (content): Merge conflict in main.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+El conflicto ocurrió al fusionar ambos archivos ya que tenían contenido diferente en cada rama:
+<<<<<<< HEAD
+print('Hello World-actualiado en main')
+=======
+def greet():
+    print('Hello como una función avanzada')
+
+greet()
+>>>>>>> feature/advanced-feature
+
+1.<<<<<<< HEAD hasta las líneas ======= -> indican que este era el contenido de main.py en la rama main
+2. Lo demás indica el contenido de main.py en la rama feature/advanced-feature.
+
+Este conflicto se resuelve manualmente , fusionando ambos archivos de la siguiente manera , además de eliminar los marcadores de conflicto:
+
+print('Hello World-actualiado en main')
+
+def greet():
+    print('Hello como una función avanzada')
+
+greet()
+

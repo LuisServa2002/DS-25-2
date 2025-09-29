@@ -1,0 +1,5 @@
+  feature/cherry-pick  aaaf5da Practica de cherry-pick y stash
+  feature/team-feature fd83f10 Revert "Agrega ejemplo de cherry-pick"
+* main                 110a277 Agrega ejemplo de cherry-pick
+  rama_especifica      6d3ab1b Agrega main.py
+  rama_hash            6d3ab1b Agrega main.py

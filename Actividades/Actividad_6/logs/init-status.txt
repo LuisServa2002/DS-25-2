@@ -1,0 +1,3 @@
+Reinitialized existing Git repository in /home/luisserva/Actividad_6/.git/
+On branch master
+nothing to commit, working tree clean

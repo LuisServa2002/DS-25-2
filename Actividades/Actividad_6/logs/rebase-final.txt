@@ -1,0 +1,4 @@
+* 89bf6f3 Fusiona cambios en main.py
+* 6d3ab1b Agrega main.py
+* d1255ce Configura la documentación base del repositorio
+* 595e4f7 Commit inicial con README.md

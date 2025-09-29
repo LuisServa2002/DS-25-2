@@ -1,0 +1,8 @@
+commit ef7fe9af4bd3cd0dd8e1406be8bdf3ac2eb476ab
+Author: Luis Serva <luisandretrujilloserva@gmail.com>
+Date:   Sun Sep 28 18:34:45 2025 -0500
+
+    Revert "Resuelve el conflicto de fusión entre la versión main y feature/advanced-feature"
+    
+    This reverts commit 21846c7b0be37a899edde73a0e5a171f069d8d8a, reversing
+    changes made to 7f3be48a92d4b67ff460811f1d283b7775f716bc.

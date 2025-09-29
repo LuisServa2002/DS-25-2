@@ -1,0 +1,12 @@
+* aaaf5da Practica de cherry-pick y stash
+* 110a277 Agrega ejemplo de cherry-pick
+| * fd83f10 Revert "Agrega ejemplo de cherry-pick"
+| * 51d153f Agrega ejemplo de cherry-pick
+| * 8466008 Agregar script de colaboracion
+| * ef8da14 Agrega script de colaboracion
+|/  
+* acffc28 Corregir error en la funcionalidad de rollback
+* 89bf6f3 Fusiona cambios en main.py
+* 6d3ab1b Agrega main.py
+* d1255ce Configura la documentación base del repositorio
+* 595e4f7 Commit inicial con README.md
