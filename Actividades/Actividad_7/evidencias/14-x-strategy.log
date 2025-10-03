@@ -1,0 +1,74 @@
+*   c9e7a0c (HEAD -> main) Merge branch 'feature-x'
+|\  
+| * ec5878f (feature-x) Cambio en feature-x
+* | fdfc306 Cambio en main
+|/  
+* a77853e Commit base en main
+*   0bf4c52 Add 'vendor/demo/' from commit '5961cb1526db007dd4893754ea4ce9214d1b44ac'
+|\  
+| * 5961cb1 Modificación del README.md
+| * c4409be Agregar logs y README.md de la actividad 06
+| * db2099b Correcciones del README
+| * 54acdc8 Agregar Actividad 05 versión final
+| * aa542fd Agregar actividad 05 culminada
+| * 41b653f Agregar avance de la parte 01 (Construir - Makefile y Bash desde cero)
+| * 55a188f Modificación del archivo sesion_redactada.txt
+| * 662d960 Agregar archivos generados (.txt) en la Actividad 04
+| * 196ec18 Añadir README.md de la actividad 04
+| * e584945 Agregar imágenes de las seccion 01,02 y 03 en la Actividad 04
+| * 9510ac2 Sección 5 Completada : se empaqueto el flujo , se agrego un script en el archivo .sh y completamos las preguntas
+| * 4b9dbb3 Sección 02 (DNS) , Sección 03 (TLS) y Sección 04 (12 Factor) completada
+| * f4f0186 Avance de la parte teórica de la actividad 3
+| * 9d655e1 Avance hasta la sección 2 (DNS) de la actividad 2
+| * 1b153c0 Avance de la actividad 2
+| * 0575b0f Añadiendo el README.md
+| * 85d6529 Commit final para archivos de otras carpetas
+| * 5abe25a Archivos .txt creados y modificados en la seccion3_redes_api
+| * d9da52a Segundo commit de rebase
+| * 7a88588 Primer commit de rebase
+| * ab2a00f Grafico de los commits
+| * 593e374 Creacion de fix.txt para el cherry-pick con main
+| * a612704 Primer commit en la rama feature/msg
+| * 231c369 .txt generados después del make all , almacenados en /reports
+| * d702bce Seccion 2.1 y 2.2 con Python
+| * 66810d1 Modificación del archivo syscheck.sh de la sección 1
+| * 63fd2ca Creacion de la carpeta para la PE
+| * e389084 Cambios para la siguiente actividad 2
+| * 1edbf82 Día 3-Evidencia, diagramas y entrega final
+| * 8f2ef94 Día 2-DevSecOps y estrategia de despliegue
+| * fe34db5 Día 1-Comparativos e imágenes base
+| * 02deae5 Estructura inicial de la actividad 1
+* 7f90a04 (feat-b) Agregar una linea en README feat-b
+* 02e439f (feat-a) Agregar una linea en README feat-a
+*   085503f Solucion del conflicto entre feat-a y feat-b
+|\  
+| * a363362 Agregar linea en feat-b
+* | b2208de Agregar linea en feat-a
+|/  
+*   2daf655 Merge con validación previa de feature-validate
+|\  
+| * c045cce (feature-validate) Actualizar script con mensaje de validación
+|/  
+* 1b83e6e Agregar script.sh
+* 3af6b92 (feature-rebase) Segundo commit en feature-rebase
+* da58e5f Primer commit en feature-rebase
+* 3fed10e (feature-ffonly) Commit en feature-ffonly
+* 832332b Revert "Merge no-ff entre main y feature-update"
+*   3010a65 Merge no-ff entre main y feature-update
+|\  
+| * 6ba0bce (feature-update) Commit en feature-update para práctica de conflictos
+* | 2e9fad4 Cambio en la estructura de index.html
+* | 329327f Commit en main para práctica de conflictos
+|/  
+* dcc1df9 Squash de feature-3: documentación estándar
+| * b85d9aa (feature-3) Tercer commit en feature-3
+| * 2368dfb Segundo commit en feature-3!
+| * 1e37f6a Primer commit en feature-3
+|/  
+*   6c1123e Merge branch 'add-feature'
+|\  
+| * 16760a2 (add-feature) Segundo commit de add-feature
+| * d134296 Primer commit de add-feature
+|/  
+* c406334 (feature-1) Añadir primer commit de la rama feature-1
+* f98813f Agregar README.md como primer commit

@@ -1,0 +1,18 @@
+* 3fed10e (HEAD -> main, feature-ffonly) Commit en feature-ffonly
+* 832332b Revert "Merge no-ff entre main y feature-update"
+* 3010a65 Merge no-ff entre main y feature-update
+| * 6ba0bce (feature-update) Commit en feature-update para práctica de conflictos
+* | 2e9fad4 Cambio en la estructura de index.html
+* | 329327f Commit en main para práctica de conflictos
+|/  
+* dcc1df9 Squash de feature-3: documentación estándar
+| * b85d9aa (feature-3) Tercer commit en feature-3
+| * 2368dfb Segundo commit en feature-3!
+| * 1e37f6a Primer commit en feature-3
+|/  
+* 6c1123e Merge branch 'add-feature'
+| * 16760a2 (add-feature) Segundo commit de add-feature
+| * d134296 Primer commit de add-feature
+|/  
+* c406334 (feature-1) Añadir primer commit de la rama feature-1
+* f98813f Agregar README.md como primer commit

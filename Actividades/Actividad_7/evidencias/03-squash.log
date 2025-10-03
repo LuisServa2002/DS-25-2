@@ -1,0 +1,12 @@
+* dcc1df9 (HEAD -> main) Squash de feature-3: documentación estándar
+| * b85d9aa (feature-3) Tercer commit en feature-3
+| * 2368dfb Segundo commit en feature-3!
+| * 1e37f6a Primer commit en feature-3
+|/  
+*   6c1123e Merge branch 'add-feature'
+|\  
+| * 16760a2 (add-feature) Segundo commit de add-feature
+| * d134296 Primer commit de add-feature
+|/  
+* c406334 (feature-1) Añadir primer commit de la rama feature-1
+* f98813f Agregar README.md como primer commit
