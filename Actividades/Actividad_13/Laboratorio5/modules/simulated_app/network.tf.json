@@ -5,7 +5,7 @@
                 {
                     "type": "string",
                     "default": "server-01",
-                    "description": "Nombre del servidor local"
+                    "description": "Cambio el nombre del servidor"
                 }
             ]
         },
