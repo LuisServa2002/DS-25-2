@@ -1,0 +1,35 @@
+{
+  "resource": {
+    "local_server": {
+      "appA": {
+        "triggers": {
+          "name": "appA",
+          "network": "netA",
+          "port": 8001
+        }
+      },
+      "appB": {
+        "triggers": {
+          "name": "appB",
+          "network": "netB",
+          "port": 8002
+        }
+      }
+    },
+    "load_balancer": {
+      "lb1": {
+        "depends_on": [
+          "local_server.appA",
+          "local_server.appB"
+        ],
+        "triggers": {
+          "name": "lb1",
+          "backends": [
+            "${local_server.appA.triggers.name}",
+            "${local_server.appB.triggers.name}"
+          ]
+        }
+      }
+    }
+  }
+}

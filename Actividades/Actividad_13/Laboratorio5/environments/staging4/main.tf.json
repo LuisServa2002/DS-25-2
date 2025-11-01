@@ -1,0 +1,27 @@
+{
+    "resource": [
+        {
+            "local_server": [
+                {
+                    "staging4": [
+                        {
+                            "provisioner": [
+                                {
+                                    "local-exec": {
+                                        "command": "echo 'Arrancando servidor staging4 en red net4 por el puerto 3004'"
+                                    }
+                                }
+                            ],
+                            "triggers": {
+                                "api_key_ref": "${var.api_key}",
+                                "name": "staging4",
+                                "network": "net4",
+                                "port": 3004
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

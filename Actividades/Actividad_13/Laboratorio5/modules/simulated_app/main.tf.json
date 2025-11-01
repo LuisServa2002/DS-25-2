@@ -1,0 +1,42 @@
+{
+    "resource": {
+        "null_resource": {
+            "appA": {
+                "triggers": {
+                    "name": "appA",
+                    "network": "netA"
+                },
+                "provisioner": {
+                    "local-exec": {
+                        "command": "echo 'Servidor appA iniciado en red netA'"
+                    }
+                }
+            },
+            "appB": {
+                "triggers": {
+                    "name": "appB",
+                    "network": "netB"
+                },
+                "provisioner": {
+                    "local-exec": {
+                        "command": "echo 'Servidor appB iniciado en red netB'"
+                    }
+                }
+            },
+            "load_balancer": {
+                "depends_on": [
+                    "null_resource.appA",
+                    "null_resource.appB"
+                ],
+                "triggers": {
+                    "type": "load_balancer"
+                },
+                "provisioner": {
+                    "local-exec": {
+                        "command": "echo 'Balanceador de carga activo entre appA y appB'"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "variable": [
+        {
+            "port": [
+                {
+                    "type": "number",
+                    "default": 8080,
+                    "description": "Puerto del servicio legacy"
+                }
+            ]
+        }
+    ]
+}

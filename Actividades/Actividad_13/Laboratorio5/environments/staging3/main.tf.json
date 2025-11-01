@@ -1,0 +1,27 @@
+{
+    "resource": [
+        {
+            "local_server": [
+                {
+                    "staging3": [
+                        {
+                            "provisioner": [
+                                {
+                                    "local-exec": {
+                                        "command": "echo 'Arrancando servidor staging3 en red net2-peered por el puerto 3003'"
+                                    }
+                                }
+                            ],
+                            "triggers": {
+                                "api_key_ref": "${var.api_key}",
+                                "name": "staging3",
+                                "network": "net2-peered",
+                                "port": 3003
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
