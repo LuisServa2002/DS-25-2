@@ -149,6 +149,60 @@ Con este patrón, la infraestructura puede escalar de forma declarativa y organi
     <img src="Imagenes/fase02-ejercicio2.5.png" width=600px height=250px>
 <p/>
 
-
 ## Fase 3: Desafíos teórico-prácticos
+### 3.1 Comparativa: Factory vs Prototype
+
+Los patrones **Factory** y **Prototype** cumplen funciones complementarias dentro del contexto de *Infrastructure as Code* (IaC).  
+El **Factory Pattern** resulta ideal cuando se desea una **creación estandarizada y controlada** de objetos, especialmente aquellos que comparten la misma estructura básica (por ejemplo, un bloque `null_resource` de Terraform).  
+El método `NullResourceFactory.create()` encapsula la lógica de inicialización, añadiendo *triggers* automáticos con UUID y timestamps que garantizan unicidad e idempotencia.  
+
+Por otro lado, el **Prototype Pattern** es más apropiado cuando se necesita **variar objetos preexistentes sin recrearlos desde cero**. Gracias a la clonación profunda (`deepcopy`), el patrón permite copiar un recurso base y aplicar mutaciones específicas mediante un *mutator*, evitando alterar el original. Esto reduce la duplicación de código y facilita la generación de variantes de infraestructura.
+
+Desde el punto de vista de rendimiento, **Factory** implica menor costo en memoria y CPU, ya que cada creación es directa. En cambio, **Prototype** conlleva un costo mayor por la serialización profunda y el proceso de copia, especialmente con estructuras JSON grandes.  
+En mantenimiento, Factory simplifica la evolución de estructuras fijas, mientras que Prototype brinda mayor flexibilidad para escenarios dinámicos o configuraciones parametrizadas.
+
+En resumen:  
+- Usa **Factory** cuando los objetos son simples, homogéneos y predecibles.  
+- Usa **Prototype** cuando necesitas clonar y personalizar estructuras complejas sin riesgo de modificar el original.
+
+### 3.2 Patrones avanzados: Adapter
+
+El patrón **Adapter** permite **traducir la interfaz** de un tipo de recurso Terraform a otro.  
+En este ejercicio se crea un adaptador `MockBucketAdapter` que transforma un bloque `null_resource` en un bloque `mock_cloud_bucket`, reutilizando la información de sus *triggers* como parámetros del bucket.
+
+<p align="center">
+    <img src="Imagenes/fase03-ejercicio2.png" width=600px height=150px>
+<p/>
+
+### 3.3 Tests automatizados con pytest
+Los tests fueron ejecutados dentro del entorno virtual (`venv`) para aislar las dependencias del sistema.  
+Se validaron los siguientes casos:
+- **Singleton**: asegura una única instancia compartida.
+- **Prototype**: garantiza clones independientes sin modificar el original.
+
+```bash
+(venv) $ pytest -v > logs/test_results.txt
+```
+
+<p align="center">
+    <img src="Imagenes/fase03-ejercicio3.png" width=600px height=300px>
+<p/>
+
+### 3.4 Escalabilidad de JSON
+Para evaluar la escalabilidad, se comparó el tamaño del archivo `main.tf.json` generado por `InfrastructureBuilder`.`build_null_fleet()` con 15 y 150 recursos:
+
+<p align="center">
+    <img src="Imagenes/fase03-ejercicio4.png" width=600px height=150px>
+<p/>
+
+A medida que crece el número de recursos, aumenta exponencialmente el tamaño del JSON, lo que impacta en:
+- los tiempos de parseo durante terraform plan y apply,
+- la sincronización en CI/CD,
+- y el almacenamiento en repositorios.
+
+**Estrategias de mitigación**:
+
+- Dividir el despliegue en múltiples módulos Terraform (por ejemplo, `network`, `app`, `storage`).
+- Usar HCL en lugar de JSON para mejorar legibilidad.
+- Aplicar herramientas como Terragrunt o Workspaces para gestionar configuraciones grandes.
 
