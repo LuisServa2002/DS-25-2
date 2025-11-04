@@ -1,0 +1,28 @@
+{
+  "module": {
+    "network": {
+      "source": "./modules/network",
+      "resource": {
+        "null_resource": {
+          "net_a": {
+            "triggers": {
+              "name": "network-A"
+            }
+          }
+        }
+      }
+    },
+    "app": {
+      "source": "./modules/app",
+      "resource": {
+        "null_resource": {
+          "app_a": {
+            "triggers": {
+              "name": "app-A"
+            }
+          }
+        }
+      }
+    }
+  }
+}

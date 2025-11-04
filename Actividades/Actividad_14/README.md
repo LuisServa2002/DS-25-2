@@ -88,6 +88,10 @@ El método `reset()` permite limpiar las configuraciones dinámicamente sin perd
     - Modificar y limpiar valores con `reset()`.
     - Verificar que solo exista una instancia global compartida.
 
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.1.png" width=700px height=80px>
+<p/>
+
 ### Ejercicio 2.2: Variación de la Factory
 
 En este ejercicio se extiende el patrón Factory para permitir la creación de recursos Terraform del tipo `null_resource` con un formato de fecha configurable.
@@ -98,11 +102,52 @@ La subclase `TimestampedNullResourceFactory` incorpora flexibilidad adicional al
 
 Esta implementación facilita la automatización y versionado de infraestructura como código (IaC), manteniendo compatibilidad con el formato JSON estándar de Terraform y promoviendo una estructura limpia y reutilizable para la generación de recursos dinámicos.
 
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.2.png" width=700px height=450px>
+<p/>
+
 ### Ejercicio 2.3: Mutaciones avanzadas con Prototype
+
+Este ejercicio aplica el **patrón Prototype** para clonar y modificar estructuras Terraform sin alterar el recurso original.  
+Se define un *mutator* que, al clonar el prototipo, **agrega dinámicamente un bloque `local_file`** con contenido de bienvenida.  
+De esta forma, el clon resultante incluye tanto el recurso base (`null_resource`) como un archivo adicional (`bienvenida.txt`) generado por Terraform al ejecutar `terraform apply`.
+
+Este enfoque demuestra cómo el patrón Prototype facilita la personalización incremental de recursos complejos mediante *deep copy* y mutaciones controladas.
+
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.3(1).png" width=600px height=300px>
+<p/>
+
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.3(2).png" width=600px height=450px>
+<p/>
+
 
 ### Ejercicio 2.4: Submódulos con Composite
 
+Aquí se extiende el **patrón Composite** para permitir la agrupación jerárquica de configuraciones Terraform.  
+La función `export()` fue modificada para **soportar tanto bloques `resource` como `module`**, logrando que distintos submódulos (por ejemplo, `network` y `app`) puedan combinarse en una única estructura JSON válida.
+
+Este patrón permite manejar múltiples componentes (submódulos) como una sola unidad lógica, facilitando la organización y reutilización de infraestructura modular en Terraform.
+
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.4.png" width=600px height=350px>
+<p/>
+
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.4(2).png" width=600px height=70px>
+<p/>
+
 ### Ejercicio 2.5: Builder personalizado
+
+En este ejercicio se integra todo lo aprendido implementando un **Builder fluido** que combina *Factory*, *Prototype* y *Composite* en un solo flujo de construcción.  
+El nuevo método `build_group(name, size)` permite **crear submódulos repetitivos** (por ejemplo, `module -> app -> resource -> null_resource.app_0`, `app_1`, etc.), automatizando la generación de múltiples instancias a partir de un modelo base.
+
+Con este patrón, la infraestructura puede escalar de forma declarativa y organizada. Cada grupo o submódulo puede exportarse en formato JSON listo para Terraform, reduciendo duplicación de código y manteniendo coherencia en los despliegues.
+
+<p align="center">
+    <img src="Imagenes/fase02-ejercicio2.5.png" width=600px height=250px>
+<p/>
 
 
 ## Fase 3: Desafíos teórico-prácticos

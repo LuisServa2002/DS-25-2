@@ -1,0 +1,150 @@
+{
+    "resource": {
+        "null_resource": {
+            "placeholder_0": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 0
+                    }
+                }
+            ],
+            "placeholder_1": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 1
+                    }
+                }
+            ],
+            "placeholder_2": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 2
+                    }
+                }
+            ],
+            "placeholder_3": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 3
+                    }
+                }
+            ],
+            "placeholder_4": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 4
+                    }
+                }
+            ],
+            "placeholder_5": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 5
+                    }
+                }
+            ],
+            "placeholder_6": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 6
+                    }
+                }
+            ],
+            "placeholder_7": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 7
+                    }
+                }
+            ],
+            "placeholder_8": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 8
+                    }
+                }
+            ],
+            "placeholder_9": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 9
+                    }
+                }
+            ],
+            "placeholder_10": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 10
+                    }
+                }
+            ],
+            "placeholder_11": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 11
+                    }
+                }
+            ],
+            "placeholder_12": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 12
+                    }
+                }
+            ],
+            "placeholder_13": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 13
+                    }
+                }
+            ],
+            "placeholder_14": [
+                {
+                    "triggers": {
+                        "factory_uuid": "df217caa-573e-4c4a-87c1-557bd5d752c2",
+                        "timestamp": "2025-11-04T18:04:28.223347",
+                        "index": 14
+                    }
+                }
+            ],
+            "finalizador": [
+                {
+                    "triggers": {
+                        "nota": "Recurso compuesto generado din\u00e1micamente en tiempo de ejecuci\u00f3n",
+                        "factory_uuid": "f170f728-0c61-420c-8b05-5c8657adec50",
+                        "timestamp": "2025-11-04T18:04:28.223347"
+                    }
+                }
+            ]
+        }
+    }
+}

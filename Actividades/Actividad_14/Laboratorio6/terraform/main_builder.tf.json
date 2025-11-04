@@ -1,0 +1,34 @@
+{
+    "module": {
+        "app": {
+            "resource": {
+                "null_resource": {
+                    "app_0": [
+                        {
+                            "triggers": {
+                                "factory_uuid": "09d9684f-908b-4fa6-86cd-62f788eaf313",
+                                "timestamp": "2025-11-04T18:01:36.220519"
+                            }
+                        }
+                    ],
+                    "app_1": [
+                        {
+                            "triggers": {
+                                "factory_uuid": "09d9684f-908b-4fa6-86cd-62f788eaf313",
+                                "timestamp": "2025-11-04T18:01:36.220519"
+                            }
+                        }
+                    ],
+                    "app_2": [
+                        {
+                            "triggers": {
+                                "factory_uuid": "09d9684f-908b-4fa6-86cd-62f788eaf313",
+                                "timestamp": "2025-11-04T18:01:36.220519"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

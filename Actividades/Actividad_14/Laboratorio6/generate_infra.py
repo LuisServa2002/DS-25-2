@@ -12,8 +12,10 @@ No se requieren credenciales de nube, demonio de Docker, ni dependencias externa
 """
 
 import os
-from iac_patterns.builder import InfrastructureBuilder
-from iac_patterns.singleton import ConfigSingleton
+import json
+import sys 
+from iac_patterns.Fase2.Ejercicio25_builder.builder import InfrastructureBuilder
+from iac_patterns.Fase2.Ejercicio21_singleton.singleton import ConfigSingleton
 
 def main() -> None:
     # Inicializa una configuración global única para el entorno "local-dev"

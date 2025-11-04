@@ -1,28 +1,14 @@
-"""Paquete iac_patterns
+"""
+Paquete iac_patterns
 
-Una colección de implementaciones de patrones de diseño (Singleton, Factory, Prototype, Builder, Composite) adaptadas para generar 
-configuraciones JSON de Terraform que funcionan únicamente de forma local. 
-
-Ejemplo de uso
---------------
-```python
-from iac_patterns.builder import InfrastructureBuilder
-
-builder = InfrastructureBuilder(env_name="demo")
-builder.build_null_fleet(count=3)
-builder.export(path="terraform/main.tf.json")
+Contiene las implementaciones de patrones de diseño (Singleton, Factory, Prototype, Composite y Builder)
+organizadas por fases y ejercicios dentro del curso CC3S2.
+Cada patrón se encuentra en su propio submódulo bajo la carpeta Fase2.
 """
 
-from .singleton import ConfigSingleton
-from .factory import NullResourceFactory
-from .prototype import ResourcePrototype
-from .composite import CompositeModule
-from .builder import InfrastructureBuilder
+# Este archivo no importa módulos directamente para evitar conflictos de rutas.
+# Los módulos se deben importar explícitamente, por ejemplo:
+# from iac_patterns.Fase2.Ejercicio25_builder.builder import InfrastructureBuilder
+# from iac_patterns.Fase2.Ejercicio23_prototype.prototype import ResourcePrototype
 
-__all__ = [
-    "ConfigSingleton",
-    "NullResourceFactory",
-    "ResourcePrototype",
-    "CompositeModule",
-    "InfrastructureBuilder",
-]
+__all__ = []
