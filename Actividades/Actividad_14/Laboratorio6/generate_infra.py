@@ -26,7 +26,7 @@ def main() -> None:
     builder = InfrastructureBuilder(env_name=config.env_name)
 
     # Construye 15 recursos null ficticios para demostrar escalabilidad (>1000 líneas en total)
-    builder.build_null_fleet(count=15)
+    builder.build_null_fleet(count=150)
 
     # Agrega un recurso final personalizado con una nota descriptiva
     builder.add_custom_resource(

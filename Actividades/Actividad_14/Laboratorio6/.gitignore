@@ -1,0 +1,29 @@
+# Ignorar entorno virtual
+venv/
+.venv/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de logs
+logs/
+*.log
+
+# Archivos generados por Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/*.tfstate
+terraform/*.tfstate.backup
+
+# Archivos temporales o locales
+*.swp
+*.tmp
+*.bak
+.DS_Store
+
+# Archivos de pytest
+.cache/
+.pytest_cache/
