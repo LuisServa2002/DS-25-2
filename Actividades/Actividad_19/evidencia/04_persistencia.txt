@@ -1,0 +1,37 @@
+=== EVIDENCIA 04: PRUEBA DE PERSISTENCIA ===
+Objetivo: Demostrar que los datos persisten en SQLite
+
+1. CREACIÓN DE ITEM (POST):
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    89  100    49  100    40   3399   2774 --:--:-- --:--:-- --:--:--  6357
+{"name":"SSD NVMe 1TB","description":null,"id":2}
+
+2. VERIFICACIÓN (GET):
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   118  100   118    0     0  29964      0 --:--:-- --:--:-- --:--:-- 39333
+HTTP/1.1 200 OK
+date: Wed, 03 Dec 2025 18:53:43 GMT
+server: uvicorn
+content-length: 118
+content-type: application/json
+
+[{"name":"test-item","description":"Descripción de prueba","id":1},{"name":"SSD NVMe 1TB","description":null,"id":2}]
+3. SEGUNDO ITEM (POST):
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    99  100    54  100    45   3716   3096 --:--:-- --:--:-- --:--:--  7071
+{"name":"Teclado Mecánico","description":null,"id":3}
+
+4. LISTADO FINAL (GET):
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   173  100   173    0     0  33301      0 --:--:-- --:--:-- --:--:-- 34600
+HTTP/1.1 200 OK
+date: Wed, 03 Dec 2025 18:54:50 GMT
+server: uvicorn
+content-length: 173
+content-type: application/json
+
+[{"name":"test-item","description":"Descripción de prueba","id":1},{"name":"SSD NVMe 1TB","description":null,"id":2},{"name":"Teclado Mecánico","description":null,"id":3}]

@@ -1,0 +1,6 @@
+=== EVIDENCIA 01: CONSTRUCCIÓN DE IMAGEN ===
+Fecha: Wed Dec  3 12:56:35 -05 2025
+Comando: docker build --no-cache -t ejemplo-microservice:0.1.0 .
+
+Imagen creada exitosamente:
+ejemplo-microservice   0.1.0       f8352f175273   46 seconds ago   162MB

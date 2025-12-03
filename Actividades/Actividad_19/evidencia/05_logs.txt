@@ -1,0 +1,20 @@
+=== EVIDENCIA 05: LOGS DEL CONTENEDOR ===
+Comando: docker logs -n 100 ejemplo-ms
+
+Logs de arranque y operaciones:
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+2025-12-03 18:38:31,610 - INFO - microservice - Arrancando la aplicación
+2025-12-03 18:38:31,610 - INFO - microservice - Inicializando base de datos en app.db
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+INFO:     172.17.0.1:60192 - "GET /api/items/ HTTP/1.1" 200 OK
+INFO:     172.17.0.1:45444 - "GET /api/items/ HTTP/1.1" 200 OK
+2025-12-03 18:53:25,565 - INFO - microservice - Ítem insertado: SSD NVMe 1TB (id=2)
+2025-12-03 18:53:25,565 - INFO - microservice - Ítem creado por la lógica de negocio: {'id': 2, 'name': 'SSD NVMe 1TB', 'description': None}
+INFO:     172.17.0.1:53546 - "POST /api/items/ HTTP/1.1" 201 Created
+INFO:     172.17.0.1:34760 - "GET /api/items/ HTTP/1.1" 200 OK
+2025-12-03 18:54:42,565 - INFO - microservice - Ítem insertado: Teclado Mecánico (id=3)
+2025-12-03 18:54:42,565 - INFO - microservice - Ítem creado por la lógica de negocio: {'id': 3, 'name': 'Teclado Mecánico', 'description': None}
+INFO:     172.17.0.1:34530 - "POST /api/items/ HTTP/1.1" 201 Created
+INFO:     172.17.0.1:56974 - "GET /api/items/ HTTP/1.1" 200 OK

@@ -1,0 +1,15 @@
+=== EVIDENCIA 03: VERIFICACIÓN HTTP ===
+URL: http://localhost:8080/api/items/
+Comando: curl -i http://localhost:8080/api/items/
+
+Respuesta:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    68  100    68    0     0  17228      0 --:--:-- --:--:-- --:--:-- 22666
+HTTP/1.1 200 OK
+date: Wed, 03 Dec 2025 18:49:22 GMT
+server: uvicorn
+content-length: 68
+content-type: application/json
+
+[{"name":"test-item","description":"Descripción de prueba","id":1}]

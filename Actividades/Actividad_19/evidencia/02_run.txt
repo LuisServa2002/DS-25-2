@@ -1,0 +1,6 @@
+=== EVIDENCIA 02: EJECUCIÓN DEL CONTENEDOR ===
+Comando: docker run --rm -d --name ejemplo-ms -p 8080:80 ejemplo-microservice:0.1.0
+
+Estado del contenedor:
+CONTAINER ID   IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                     NAMES
+a1f9f643aacb   ejemplo-microservice:0.1.0   "uvicorn microservic…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   ejemplo-ms
