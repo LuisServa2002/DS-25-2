@@ -212,3 +212,16 @@ Para nuestra actividad, diseñaremos:
 
 **Justificación**: Esta separación permite evolucionar el catálogo independientemente de otros módulos futuros (usuarios, pedidos, pagos), manteniendo la simplicidad operacional con SQLite para la base obligatoria.
 
+## Empaquetado y verificación con Docker 
+
+1. Por qué usar puerto 8080: "El puerto 80 estaba ocupado por nginx en WSL, por lo que se utilizó el puerto 8080 como alternativa estándar para desarrollo."
+
+2. Por qué NO usar latest:
+
+- Reproducibilidad: 0.1.0 siempre será idéntico
+
+- Control de cambios: 0.1.1 solo fixes, 0.2.0 nuevas features
+
+- Seguridad: Evita updates automáticos con breaking changes
+
+3. Cómo SemVer garantiza reproducibilidad: Versionado semántico que permite reconstruir exactamente el mismo entorno en cualquier momento.
