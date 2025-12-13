@@ -1,0 +1,23 @@
+1. Preparación técnica
+Para solucionar el problema de las versiones de Docker , realizamos:
+# Copia de seguridad primero
+cp Makefile Makefile.backup
+
+# Reemplazar 'docker compose' por 'docker-compose' en todo el archivo
+sed -i 's/docker compose/docker-compose/g' Makefile
+
+# Verifica los cambios
+cat Makefile | grep -n "docker-compose"
+
+2. Levantar el stack y generar telemetría
+# Levanta
+make up 
+
+# Verificar
+docker ps
+
+# Dar permiso al archivo
+chmod +x ./scripts/demo-traffic.sh
+./scripts/demo-traffic.sh
+
+3. 
