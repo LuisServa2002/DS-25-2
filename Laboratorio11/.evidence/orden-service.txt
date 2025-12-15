@@ -1,0 +1,14 @@
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ docker-compose -f docker-compose.order.test.yml up --build --abort-on-container-exit --exit-code-from sut
+Creating network "laboratorio11_default" with the default driver
+Creating laboratorio11_app_1 ... done
+Creating laboratorio11_sut_1 ... done
+Attaching to laboratorio11_app_1, laboratorio11_sut_1
+sut_1  | OKSUT OK
+laboratorio11_sut_1 exited with code 0
+Aborting on container exit...
+Stopping laboratorio11_app_1 ... done
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ docker-compose -f docker-compose.order.test.yml down -v
+Removing laboratorio11_sut_1 ... done
+Removing laboratorio11_app_1 ... done
+Removing network laboratorio11_default
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$

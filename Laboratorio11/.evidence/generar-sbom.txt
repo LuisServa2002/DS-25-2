@@ -1,0 +1,12 @@
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ mkdir -p artifacts
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ docker save user-service:sbom-test -o artifacts/user-service.tar
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ syft scan docker-archive:artifacts/user-service.tar -o json > artifacts/user-service-sbom.json
+ ✔ Parsed image                                                                                                                        sha256:9c7db99ea9b743742e840aa924aa797ff89860c17fe58c2a6f19e45dcf5405fc
+ ✔ Cataloged contents                                                                                                                         f4612376686f2451c497ff40de614263e5bdef23a8a9ba07bc5ae90788aeec62
+   ├── ✔ Packages                        [382 packages]
+   ├── ✔ Executables                     [778 executables]
+   ├── ✔ File metadata                   [2,729 locations]
+   └── ✔ File digests                    [2,729 files]
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$ ls -la artifacts/user-service-sbom.json
+-rw-r--r-- 1 luisserva luisserva 3410943 Dec 14 15:39 artifacts/user-service-sbom.json
+(.venv) luisserva@LuisServa:~/DS-25-2/Laboratorio11$

@@ -1,0 +1,5 @@
+SERVICE=user-service
+IMAGE=order-service:562a7c0
+K8S_IMAGE=order-service:562a7c0
+TAG=562a7c0
+K8S_VERSION=v1.32.2

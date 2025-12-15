@@ -1,0 +1,50 @@
+SERVICE=order-service
+IMAGE=ghcr.io/luisserva2002/order-service:562a7c0
+K8S_IMAGE=ghcr.io/luisserva2002/order-service:562a7c0
+TAG=562a7c0
+K8S_VERSION=v1.32.2
+[i] usando daemon de minikube para que el cluster vea la imagen
+Sending build context to Docker daemon    687MB
+Step 1/12 : FROM python:3.12-slim
+ ---> bf1953a9427f
+Step 2/12 : ENV PYTHONDONTWRITEBYTECODE=1     PYTHONUNBUFFERED=1     PORT=8000
+ ---> Using cache
+ ---> 4ed319ae6a1a
+Step 3/12 : RUN set -eux;     rm -f /etc/apt/apt.conf.d/docker-clean || true;     apt-get update;     apt-get install -y --no-install-recommends curl ca-certificates;     rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> aabe7aa73cd6
+Step 4/12 : WORKDIR /app
+ ---> Using cache
+ ---> 93c6516c187e
+Step 5/12 : COPY requirements.txt /app/requirements.txt
+ ---> Using cache
+ ---> 2f3ad345011c
+Step 6/12 : RUN pip install --no-cache-dir -r /app/requirements.txt || true
+ ---> Using cache
+ ---> dd1bc1bf44b5
+Step 7/12 : COPY . /app
+ ---> f2bed2e8b61a
+Step 8/12 : RUN useradd -m app && chown -R app:app /app
+ ---> Running in d1c84c5ed7f3
+ ---> Removed intermediate container d1c84c5ed7f3
+ ---> 0e6b59998d7a
+Step 9/12 : USER app
+ ---> Running in 9336d7db3fcc
+ ---> Removed intermediate container 9336d7db3fcc
+ ---> dd6bee769186
+Step 10/12 : EXPOSE ${PORT}
+ ---> Running in 2af9c77def9e
+ ---> Removed intermediate container 2af9c77def9e
+ ---> b299ff631494
+Step 11/12 : HEALTHCHECK --interval=30s --timeout=5s --retries=3   CMD curl -fsS "http://127.0.0.1:${PORT}/" || exit 1
+ ---> Running in 1bf1e2212406
+ ---> Removed intermediate container 1bf1e2212406
+ ---> 507292eab55e
+Step 12/12 : CMD ["python", "server.py"]
+ ---> Running in 2a1dd34ab8e0
+ ---> Removed intermediate container 2a1dd34ab8e0
+ ---> 79f1c3ea9b58
+Successfully built 79f1c3ea9b58
+Successfully tagged ghcr.io/luisserva2002/order-service:562a7c0
+[OK] build in-minikube -> ghcr.io/luisserva2002/order-service:562a7c0
+The push refers to repository [ghcr.io/luisserva2002/order-service]
